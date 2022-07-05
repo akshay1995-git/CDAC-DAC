@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function sum(){
+            var num=parseInt(document.getElementById("n1").value);
+            var sum=0;
+            if(num<0 ||num>1000){
+             document.getElementById("r1").innerHTML="Entered number is out of range";
+            }
+            else{
+                for(var i=num;i>0;){
+                var r=i%10;
+                sum=sum+r;
+                i=parseInt(i/10);
+                }
+                document.getElementById("r1").innerHTML="Sum Of digit : "+sum;
+            }
+
+        }
+    </script>
+    
+</head>
+<body>
+    <form>
+        Enter a +ve number less than 1000:
+        <input type="text" name="n1" id="n1"><br>
+        <input type="button" value="cal sum" id="b1" onclick="sum()"><bt><br>
+        <span id="r1"></span><br><br>
+    </form>
+    
+</body>
+</html>

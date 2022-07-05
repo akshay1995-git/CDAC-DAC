@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function stringFun() {
+            var check = "";
+            var str1 = document.getElementById("n1").value;
+            var str2 = document.getElementById("n2").value;
+            var str3 = document.getElementById("n3").value;
+
+            var flist = document.getElementsByClassName("method");
+            for (var j = 0; j < flist.length; j++) {
+                if (flist[j].checked == true) {
+                    switch (j) {
+                        case 0: check = str1.search(str2);
+                            document.getElementById("r0").innerHTML = "Result : " + check;
+                            break;
+                        case 1: check = str1.toUpperCase();
+                            document.getElementById("r1").innerHTML = "Result : " + check;
+                            break;
+                        case 2: check = str1.toLowerCase();
+                            document.getElementById("r2").innerHTML = "Result : " + check;
+                            break;
+                        case 3:check=str1.trim();
+                            document.getElementById("r3").innerHTML = "Result : " + check;
+                            break;
+                        case 4:check=str1.concat(str2);
+                            document.getElementById("r3").innerHTML = "Result : " + check;
+                            break;
+                        case 5:check=str1.replace(str2,str3);
+                            document.getElementById("r4").innerHTML = "Result : " + check;
+                            break;
+
+
+                    }
+                }
+            }
+        }
+
+    </script>
+    <style>
+        span{
+            color:red;
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form>
+        Enter a String:<input type="text" name="n1" id="n1"><br><br>
+        Enter a substring:<input type="text" name="n2" id="n2"><br><br>
+        Replace with string:<input type="text" name="n3" id="n3"><br><br>
+        <input type="radio" name="rad" class="method">Search substring in mainstring
+        <input type="radio" name="rad" class="method">To UpperCase
+        <input type="radio" name="rad" class="method">To LowerCase<br><br>
+        <input type="radio" name="rad" class="method">Trim Spaces
+        <input type="radio" name="rad" class="method">Concatenate
+        <input type="radio" name="rad" class="method">Replace
+        <br><br><input type="button" value="Submit Query" onclick="stringFun()"><br><br><br>
+        <span id="r0"></span>
+        <span id="r1"></span>
+        <span id="r2"></span>
+        <span id="r3"></span>
+        <span id="r4"></span>
+        <span id="r5"></span>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        h2 {
+            color: red;
+        }
+    </style>
+    <script>
+        function timespan() {
+            var d1 = new Date("06/28/2021");//pass the current date
+            var d2 = new Date("12/31/2021");
+            var result = (d2 - d1) / (1000 * 60 * 60 * 24);
+            return result;
+        }
+        function greeting(){
+            var g = new Date();
+            var hour=g.getHours();
+            if(hour>=6 && hour<=12){
+                document.write("Welcome and Good Morning To you");
+            }
+            else if(hour>12 && hour<=16){
+                document.write("<h2> Welcome and Good Afternoon To you</h2>");
+            }
+            else{
+                document.write("<h2>Welcome and Good Evening To you</h2>");
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <script>
+        var arrday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        var month = ["January", "February", "March", "April", "May", "June", "July", "August",
+                           "September", "October", "November", "December"];
+
+        var d = new Date();
+        var day = arrday[d.getDay()-1];
+        document.write("<h2>Today is " + day + "," + d.getDate() + " " + month[d.getMonth()] +
+            " " + d.getFullYear() +
+            "&nbsp;</h2>");
+            greeting();
+        document.write("<h2>Number of days left till end of year : " + timespan());
+    </script>
+
+</body>
+
+</html>

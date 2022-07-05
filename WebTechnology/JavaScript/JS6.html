@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function min() {
+            var min = Infinity;
+            for (var i = 0; i < arguments.length; i++) {
+                if (arguments[i] < min) {
+                    min = arguments[i];
+                }
+            }
+            return min;
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+
+        document.write("Minimun Number :" + min(10, 20, 24) + "<br>");
+        document.write("Minimun Number :" + min(24, 45) + "<br>");
+        document.write("Minimun Number :" + min(11, 20, 24, 5) + "<br>");
+    </script>
+
+</body>
+
+</html>

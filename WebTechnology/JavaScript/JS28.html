@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function print(){
+        var array = ["John", "Steve", "ben", "damon", "ian"];
+     str= "";
+       for(var i=0;i<array.length;i++){
+           str=str+"<li>"+array[i]+"</li>";
+       }
+       document.getElementById("list").innerHTML= str;
+    }
+    </script>
+
+</head>
+
+<body>
+    <form>
+    <h2>Members of my group are :</h2>
+   <input type="button" value="print" onclick="print()">
+   <ol type="1" id="list"></ol>
+</form>
+</body>
+
+</html>

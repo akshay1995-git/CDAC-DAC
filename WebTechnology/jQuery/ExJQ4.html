@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .bg{
+            background-color:yellow;
+        }
+    </style>
+    <script src="./JS/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $("#bt").click(function(){
+            let input=$("#val").val()
+              $("li:contains("+input+")").css("background-color","yellow")
+          
+           });              
+          $("#add").click(function(){
+              $("ul").append("<li>Implementation</li>")
+          })
+           
+          
+        });
+
+    </script>
+</head>
+<body>
+    <form>
+        Department Name<input type="text" id="val">
+        <input type="button" id="bt" value="Test it"><br>
+        <input type="button" id="add" value="Append"><br>
+    </form>
+    <h3>Departments</h3>
+    <ul>
+        <li>Marketings</li>
+        <li>Sales</li>
+        <li>Technology</li>
+        <li>Customer Support</li>
+    </ul>
+  
+    
+</body>
+</html>

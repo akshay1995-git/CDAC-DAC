@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>
+            Jqery Assignment 12 And 13
+        </title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+            nameArray=['John','Steve','Ben','Damon','Ian']
+            var str ="";
+            $(document).ready(function(){
+                console.log("Here");
+            jQuery.each(nameArray,function(i,val){
+                str+=("<li>"+val+"</li>");
+            });
+            $("#list").html(str)
+        });
+             
+        </script>
+    </head>
+    <body>
+        <h3>
+            Members of my group are:
+            <br>
+        </h3>
+        <ol id="list">
+
+        </ol>
+    </body>
+
+</html>

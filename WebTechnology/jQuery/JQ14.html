@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>
+            Jquery Assignment No 14
+        </title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+            var array = [];
+            $(document).ready(function(){
+                $(":button.Add").click(function(){
+                    var name = $("#sname").val();
+                    console.log(name);
+                    var age = $("#age").val();
+                    console.log(age);
+                    var status = $(":input[type='radio']:checked").val();
+                    console.log(status);
+                    var jsonData = {
+                        "name": name,
+                        "age" :age,
+                        "status" : status
+                    };
+                    array.push(jsonData);
+
+                });
+                $(":button.Display").click(function(){
+                console.log("here");
+                var obj = array.pop();
+                var str = "<table><tr><td> Name :</td><td>"+obj.name+"</td>"+
+                          "</tr><tr><td> Age :</td><td>"+obj.age+"</td><td>"+
+                          "</tr><tr><td> Employed :</td><td>"+obj.status+"</td><td></tr>";
+                $("#div1").html(str);
+            });
+            });
+            
+
+            
+        </script>
+    </head>
+    <body>
+        <form>
+            <table>
+                
+                <tr>
+                    <td>Name :</td>
+                    <td><input type="text" id="sname"></td>
+                </tr>
+                <tr>
+                    <td>
+                        Age :
+                    </td>
+                    <td>
+                        <input type="text" id="age">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employed :
+                    </td>
+                    <td>
+                        <input type="radio" class="employed" name="employed" value="true">True
+                        <input type="radio" class="employed" name="employed" value="false">False
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Add" class="Add" name="Add" >
+                    </td>
+                    <td>
+                        <input type="button" value="Display" class="Display" name="Display">
+                    </td>
+                </tr>
+            </table>
+            <div id="div1">
+
+            </div>
+        </form>
+    </body>
+</html>

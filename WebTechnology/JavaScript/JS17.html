@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+       function printarea(radius){
+           return (Math.PI*radius*radius);
+       }
+       function printcircumference(radius){
+           return (2*Math.PI*radius);
+       }
+
+       
+        
+    </script>
+   
+</head>
+<body>
+    <script>
+        function Circle(){
+            this.area=printarea;
+            this.peri=printcircumference;
+        
+        }
+        var a=new Circle();
+        document.write("Area of circle "+a.area(10)+"<br>");
+        document.write("Circumference of circle "+a.peri(10)+"<br>");
+        
+        function Rectangle(){
+            this.area=function(length,breadth){
+                return length*breadth;
+            };
+            this.peri=function(length,breadth){
+                return (2*(length+breadth));
+            };
+        }
+        var b=new Rectangle();
+        document.write("Area of Rectangle "+b.area(10,20)+"<br>");
+        document.write("Perimeter of Rectangle "+b.peri(10,20)+"<br>");  
+    </script>
+    
+</body>
+</html>

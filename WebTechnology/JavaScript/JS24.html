@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function mul1() {
+            var res = "";
+            var start = parseInt(document.getElementById("n1").value);
+            var end = parseInt(document.getElementById("n2").value);
+            var mul = parseInt(document.getElementById("n3").value);
+            for (var i = start; i < end; i++) {
+                var result = i * mul;
+                res += (i + " times " + mul + " is " + result + "<br>");
+            }
+            document.getElementById("tx").innerHTML = res;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <form>
+
+        Start Number:<input type="text" name="n1" id="n1">
+        End Number:<input type="text" name="n2" id="n2">
+        Multiple:<input type="text" name="n3" id="n3">
+        <br><br>
+        <input type="button" onclick="mul1()" value="calculate"><br><br>
+        <input type="reset" value="Reset"><br><br>
+        <div id="tx"> </div>
+
+    </form>
+
+
+
+
+</body>
+
+</html>

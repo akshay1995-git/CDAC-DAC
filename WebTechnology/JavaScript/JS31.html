@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function validate() {
+            var n = document.getElementById("name").value;
+            console.log(n);
+           var nx=/^[A-Za-z]+$/;
+
+            if(nx.test(n)){
+            document.getElementById("n1").innerHTML = "Name :" + n + "<br>";
+            }
+            else{
+             document.getElementById("ne").innerHTML ="Please Enter a valid name" 
+            }
+            var d=document.getElementById("date").value;
+            console.log(d)
+            document.getElementById("d1").innerHTML = "Date :" + d + "<br>";
+            var e = document.getElementById("mail").value;
+        
+            document.getElementById("e1").innerHTML = "Email :" + e + "<br>";
+            var glist = document.getElementsByClassName("gen");
+            for (var j = 0; j < glist.length; j++) {
+                if (glist[j].checked == true) {
+                    document.getElementById("g1").innerHTML = "Gender :" + glist[j].value + "<br>";
+                }
+            }
+            var l = document.getElementById("lucky").value;
+            if(l.length<4){
+                document.getElementById("le").innerHTML="Please enter a valid number"
+            }
+           else{
+            document.getElementById("l1").innerHTML = "Name :" + l + "<br>";
+           }
+            var flist = document.getElementsByClassName("check");
+            var st = "";
+            for (var i = 0; i < flist.length; i++) {
+                if (flist[i].checked) {
+                    st = flist[i].value + "&nbsp;&nbsp;" + st;
+                }
+                document.getElementById("f1").innerHTML = "Favorite Food :" + st + "<br>";
+            }
+
+
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <form>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="name" required></td>
+                <td><span id="ne" style="color:red;"></span></td>
+            </tr><br><br>
+            <tr>
+                <td>Birth Date:</td>
+                <td><input type="date" id="date"></td>
+            </tr><br><br>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" id="mail">
+                    &nbsp; &nbsp; &nbsp;(Use format name @company.com)</td>
+            </tr><br><br>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" id="g" name="gender" class="gen" value="Male">Male<br>
+                    <input type="radio" id="g" name="gender" class="gen" value="Female">Female
+                </td>
+            </tr><br><br>
+            <tr>
+                <td>Lucky Number:</td>
+                <td><input type="text" id="lucky">
+                    &nbsp; &nbsp; &nbsp;A number is between 1 to 100</td>
+                    <td><span id="le" style="color:red;"></span></td>
+            </tr><br><br>
+            <tr>
+                <td>Favourite Food:</td>
+                <td>
+                    <input type="checkbox" id="c1" value="Pizza" class="check">Pizza<br>
+                    <input type="checkbox" id="c2" value="Pasta" class="check">Pasta<br>
+                    <input type="checkbox" id="c3" value="Chinese" class="check">Chinese
+             </td></tr><br><br>
+            <tr><td><input type="button" value="Send Data" onclick="validate()"></td></tr>
+            <span id="n1"></span>
+            <span id="d1"></span>
+            <span id="e1"></span>
+            <span id="g1"></span>
+            <span id="l1"></span>
+            <span id="f1"></span>
+        </table>
+    </form>
+
+
+</body>
+
+</html>

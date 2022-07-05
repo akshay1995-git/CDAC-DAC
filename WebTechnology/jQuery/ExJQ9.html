@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ExJQ-9</title>
+    <script src="./JS/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           $("#bt").click(function(){
+               let input=$("#val").val()
+              $("td:contains("+input+")").css("background-color","yellow")
+          
+       })
+    })
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr><td>Jhons Smith</td><td>Marketting</td></tr>
+        <tr><td>Janes Smith</td><td>Technology</td></tr>
+        <tr><td>Mike Jorden</td><td>Sales</td></tr>
+        <tr><td>Mary Jones</td><td>Customer Support</td></tr>
+        
+    </table><br><br>
+    <form>
+        <input type="text" id="val">
+        <input type="button" id="bt" value="Test it">
+        <input type="reset" id="rst" value="Reset">
+    </form>
+    
+</body>
+</html>

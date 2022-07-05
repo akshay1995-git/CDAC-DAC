@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./JS/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#bt").click(function(){
+                $("ul").css({"border":"5px dashed red","background-color":"yellow"});
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <h3>Departments</h3>
+    <ul>
+        <li>Marketings</li>
+        <li>Sales</li>
+        <li>Technology</li>
+        <li>Customer Support</li>
+    </ul>
+    <form>
+        <input type="button" id="bt" value="Test it">
+    </form>
+    
+</body>
+</html>

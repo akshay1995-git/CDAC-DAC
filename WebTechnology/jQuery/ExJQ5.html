@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./JS/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           $("#bt").click(function(){
+           $("tr:odd").css("background-color","lightskyblue")
+       })
+    })
+    </script>
+   
+	
+</head>
+<body>
+	<table>
+		<tr><th>Employee Name</th><th>Department</th><th>Salary</th></tr>
+		<tr><td>Jane Smith</td><td>Marketting</td><td>$95,000</td></tr>
+		<tr><td>John Smith</td><td>Technology</td><td>$90,000</td></tr>
+		<tr><td>Brian Adam</td><td>Sales</td><td>$72,000</td></tr>
+		<tr><td>Mary Jones</td><td>Support</td><td>$60,000</td></tr>
+		<tr><td>Michael Jefferson</td><td>Technology</td><td>$85,000</td></tr>
+	</table><br>
+	<form>
+		<input type="button" id="bt" value="Test it" style="border-color: lightskyblue;">
+	</form>
+		
+
+
+</body>
+</html>

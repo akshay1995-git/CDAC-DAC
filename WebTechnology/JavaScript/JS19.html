@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        //4 object stored in array
+        e1={id:101,name:"Rahul",salary:40000};
+        e2={id:101,name:"Akshay",salary:35000};
+        e3= {id:101,name:"Akash",salary:49000};
+        e4={id:101,name:"Kumar",salary:27000};
+         var arr=[e1,e2,e3,e4];
+         
+    </script>
+    <style>
+        table,tr{
+            border:1px solid black;
+            width:30%;
+
+    </style>
+</head>
+<body>
+    <script>
+document.write("<table>")
+document.write("<tr><th>Employ ID</th><th>Employ Name</th><th>Salary</th></tr>");
+for(var i=0;i<arr.length;i++){
+ document.write("<tr><td>"+arr[i].id+"</td><td>"+arr[i].name+"</td><td>"+arr[i].salary+"</td></tr>");
+}
+document.write("</table>")
+       </script>
+   
+</body>
+</html>

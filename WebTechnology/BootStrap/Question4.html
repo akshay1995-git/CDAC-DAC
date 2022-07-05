@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+       <div class="bg-info" style="padding:15px;">
+           <h1 class="text-white">Adam's To Do List</h1>
+       </div>
+       <div class="row">
+           <div class="form-group col-sm-4">
+               <form>
+                   Task:<br><input type="text" class="form-control"><br>
+                   Location:<br><input type="text" class="form-control"><br>
+                   <input type="checkbox" class="form-control col-sm-1">Done
+                   <input type="submit" class="form-control bg-info col-sm-3" value="Add">
+               </form>
+           </div>
+           <div class="col-sm-8">
+               <table class="table table-striped table-bordered">
+                   <tr><th class="col-sm-4">Description</th><th class="col-sm-4">Done</th></tr>
+                   <tr><td>Buy Flower</td><td>No</td></tr>
+                   <tr><td>Get Shoes</td><td>No</td></tr>
+                   <tr><td>Collect Ticket</td><td>No</td></tr>
+                   <tr><td>Call Joe</td><td>No</td></tr>
+               </table>
+           </div>
+
+       </div>
+   
+  </div>
+</body>
+</html>

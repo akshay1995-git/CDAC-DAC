@@ -1,0 +1,9 @@
+id : 1
+name : Akshay
+designation : Developer
+Salary : 500000
+Date of Resignation : Thu Jun 03 2021 19:28:47 GMT+0530 (India Standard Time)id : 1
+name : Akshay
+designation : Developer
+Salary : 500000
+Date of Resignation : Sun Jun 27 2021 08:50:22 GMT+0530 (India Standard Time)

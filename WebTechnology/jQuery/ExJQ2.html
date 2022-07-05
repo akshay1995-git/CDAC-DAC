@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        img{
+        position:relative;
+        border:2px solid red;
+        }
+    </style>
+    
+    <title>ExJQ</title>
+    <script src="./JS/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#bt").click(function(){
+           $("img").animate({left:'500px',
+                        width:'300px',
+                        height:'250px',
+                     borderWidth:'5px'}, 2000);
+            $("img").animate({top:'250px'},2000);
+         
+        })
+
+    })
+    </script>
+</head>
+<body>
+    <form>
+        <input type="button" value="Test it" id="bt">
+    </form><br>
+    <img src="./thar.jpg" width="150px" height="100px">
+   
+</body>
+</html>

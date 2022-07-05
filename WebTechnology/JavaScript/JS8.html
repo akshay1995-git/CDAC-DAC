@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script>
+       function pow(num,pow){
+           var power=1;
+           for(var i=1;i<=pow;i++){
+               power*=num;
+           }
+           return power;
+       }
+   </script>
+    
+</head>
+<body>
+    <script>
+        var a=parseInt(prompt("Enter a  number :"));
+        var b=parseInt(prompt("Enter a power :"));
+       
+        document.write(a+"the power of"+b +"is :"+pow(a,b));
+    </script>
+    
+</body>
+</html>

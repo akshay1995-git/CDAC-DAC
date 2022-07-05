@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		tr{
+			color: deepskyblue;
+		}
+		#sub{
+			background-color: deepskyblue;
+		}
+		div.cls{
+            background-color: grey;
+            height:50Px;
+            opacity: 0.65;
+            color:black;
+		}
+		
+	</style>
+</head>
+<body>
+  <div style="border:10px solid;color: darkviolet; width:30%;height:60%;">
+	
+
+		<form>
+			<table align="center">
+			<div class="cls" ><h3 align="center">Create Account</h3></div><br>
+			<div>
+			<tr><td>First name<br><input type="text"></td>
+				<td>Last name<br><input type="text"></td></tr>
+			<tr><td colspan="2">Email<br>
+					<input type="text" placeholder="enter your email" size="47%"></td></tr>
+			<tr><td>Password<br><input type="text"></td>
+				<td>Confirm Password<br><input type="text"></td></tr>
+			<tr><td>Gender<br><input type="radio" name="gen">Male
+				<input type="radio" name="gen">Female
+                </td>
+                <td>Hobbies<br>
+                	<input type="checkbox" name="hob">Music
+                	<input type="checkbox" name="hob">Sport
+                	<input type="checkbox" name="hob">Travel
+                	
+                </td>
+            </tr>
+           <tr><td>Source of Income<br>
+            	<select>
+            		<option>Employed</option>
+            	</select></td>
+            	<td>Income<br>
+            		<input type="range" min="5000" max="20000">
+            	</td>
+            </tr>
+          
+            <tr><td colspan="2">Bio<br>
+            	<textarea cols="50" rows="4"> </textarea></td>
+            </tr>
+</table>
+         <div class="cls">
+            <input type="submit" value="create" id="sub">
+        </div>
+</form>
+				
+		
+	</table>
+</div>
+
+</body>
+</html>

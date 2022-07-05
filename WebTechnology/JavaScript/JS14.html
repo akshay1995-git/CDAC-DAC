@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function getWeekDay(date){
+            var arr=["MO","TU","WE","TH","FR","SA","SU"];
+            for(var i=0;i<arr.length;i++){
+                if(i==date){
+                    alert(arr[i]);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var d=new Date();
+        var day=d.getDay();
+        getWeekDay(day-1)
+       
+    </script>
+    
+</body>
+</html>

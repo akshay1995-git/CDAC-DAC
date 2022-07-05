@@ -1,0 +1,89 @@
+<html>
+<head>
+	 <title>js29</title>
+	   <script>
+	   function result()
+	   {
+	   
+	        var p = document.getElementById("a").value;
+		    var r = document.getElementById("b").value;
+		    var t = document.getElementById("c").value;
+		 
+		    var interest = ( (p * r * t) / 100 );
+		    var total =  parseInt(interest) + parseInt(p);
+		    var monthly = total / ( t * 12 );
+		 
+		    document.getElementById("d").value = monthly;
+		    document.getElementById("e").value = total;
+		    document.getElementById("f").value = interest; 
+	   }
+	   
+	   function validateAmount()
+	   {
+	       var p = document.getElementById("a").value;
+		   var t = document.getElementById("c").value;
+		  
+		   if(p > 1500000)
+		 {
+		   alert("amount of loan should not greater than 15 lakhs");
+		   document.getElementById("a").focus();
+		   document.getElementById("a").select();
+		  
+		 }
+		   if( t > 15 || t < 7)
+		 {
+		   alert("repayment period should be between 7 yrs to 15 yrs");
+		   document.getElementById("c").focus();
+		 }
+		   result();
+		 
+	   
+	   }
+	   </script>
+    </head>
+	<body>
+	<fieldset style="border-color: blue; width: 800px">
+	 <h2>Enter Loan Information</h2>
+	   <form>
+	   
+	     <table>
+		 <tbody><tr>
+		     <td>1) Amount of the loan(amy currency):</td>
+			 <td><input type="number" id="a"></td>
+		 </tr>
+		 <tr>
+		     <td>2) Annual percentage rate of interest:</td>
+			 <td><input type="number" id="b"></td>
+		 </tr>
+		 <tr>
+		     <td>3)Repayment period as in years:</td>
+			 <td><input type="number" id="c"></td>
+		 </tr>
+		 </tbody></table><br>
+		 
+		 <input type="button" value="Compute" onclick="validateAmount()"> <br>
+		  
+		 <h2>Payment Information</h2><table>
+		   
+         <tbody><tr>
+             <td>4) Your monthly payment will be:</td>
+          	 <td><input type="number" id="d" readonly=""></td>
+         </tr>
+		 <tr>
+             <td>5) Your total payment will be:</td>
+         	 <td><input type="number" id="e" readonly=""></td>
+         </tr>
+		 <tr>
+             <td>6)Your total interest payment will be:</td>
+         	 <td><input type="number" id="f" readonly=""></td>
+         </tr>
+		 </tbody></table>
+		 
+	  </form>
+	  
+	 </fieldset>
+	
+	
+	
+</body>
+</html>

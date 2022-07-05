@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function customerdetail() {
+            var r = parseInt(document.getElementById("id").value);
+            document.getElementById("d1").innerHTML = "Order ID :" + r;
+            var name = document.getElementById("name").value;
+            if (name.length < 6) {
+                document.getElementById("err1").innerHTML = "Customer name Can not less than 6";
+            }
+            else {
+                document.getElementById("d2").innerHTML = "Cust name : " + name;
+            }
+            var a = document.getElementById("bd").value;
+            console.log(a);
+            var b = document.getElementById("sd").value;
+            console.log(b);
+            var date1 = new Date(a);
+            console.log(date1);
+            var date2 = new Date(b);
+            console.log(date2);
+            var ship_d = date2.getTime();
+            var bill_d = date1.getTime();
+
+            if (ship_d < bill_d) {
+                document.getElementById("err2").innerHTML = "Billing date is not greater than Shipping date";
+            }
+            else {
+
+                //console.log(typeof(a));
+                //console.log(typeof(b));
+                document.getElementById("d3").innerHTML = "Bill Date : " + a;
+                document.getElementById("d4").innerHTML = "Shipping Date : " + b;
+            }
+
+            var bill = parseInt(document.getElementById("to").value);
+            document.getElementById("d5").innerHTML = "Order total : " + bill;
+        }
+    </script>
+
+</head>
+
+<body>
+    <form autocomplete="off">
+        Order ID:<input type="text" id="id" required><br><br>
+        Cust name:<input type="text" id="name" required>
+        <span id="err1" style="color:red;font-size:25px;"></span><br><br>
+        Enter a Billling date:<input type="date" id="bd" required><br><br>
+        Enter a Shipping date:<input type="date" id="sd" required>
+        <span id="err2" style="color:red;font-size:25px;"></span><br><br>
+        Order Total:<input type="text" required id="to"><br><br>
+        <input type="button" value="display" onclick="customerdetail()"><br><br>
+        <span id="d1"></span><br>
+        <span id="d2"></span><br>
+        <span id="d3"></span><br>
+        <span id="d4"></span><br>
+        <span id="d5"></span><br>
+    </form>
+
+</body>
+
+</html>

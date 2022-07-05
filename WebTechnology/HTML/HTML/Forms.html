@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Forms</title>
+</head>
+<body>
+	<form>
+		<fieldset style="width: 25%;">
+			<legend>Create a Profile</legend>
+		First Name:
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br>
+		Last Name:
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br>
+		Date of Birth:
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date"><br>
+		Gender:
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" value="male" name="gender">Male
+		<input type="radio" value="female" name="gender">Female
+		<br><br>
+		&nbsp;&nbsp;&nbsp;<input type="submit" value="Create profile">
+       </fieldset>
+   </form><br><br><br><br>
+   <table border="1" width="30%">
+   	<form>
+   		<tr bgcolor="lightblue"><th>Name</th><th>Value</th></tr>
+   		<tr><td>Name</td><td><input type="text"></td></tr>
+   		<tr><td>Sex</td><td><input type="radio" value="male" name="gender">Male</input><br>
+   			                <input type="radio" value="female" name="gender">Female</input>
+   		                  </td>
+   		  </tr>
+        <tr><td>Eye color</td>
+        	<td>
+        		<select>
+        			<option value="Brown">Brown</option>
+                    <option value="Black">Black</option>
+                    <option value="Green">Green</option>
+                </select>
+            </td>
+        </tr>
+        <tr><td>Check all that apply</td>
+        	      <td><input type="checkbox">Over 6 feet tall<br>
+        	      <input type="checkbox">Over 200 pounds
+        	  </td>
+
+        </tr>
+        <tr><td colspan="2" align="center">
+                Describe your atheletic ability<br>
+                <textarea cols="50" rows="4">
+                </textarea>
+
+            </td>
+        </tr>
+        <tr><td colspan="2" align="center"><input type="submit" value="Enter my information"></td></tr>
+
+   	</form>
+   </table>
+</body>
+</html>

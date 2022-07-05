@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>ExJQ8</title>
+   <script src="./JS/jquery-3.6.0.min.js"></script>
+   <script>
+      $(document).ready(function(){
+          $("#first").click(function(){
+          $("li:nth-child(1)").css("background-color","yellow")
+      })
+      $("#third").click(function(){
+          $("li:nth-child(3)").css("background-color","yellow")
+      })
+   })
+   </script>
+</head>
+<body>
+    <ul id="ul">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <ul id="ul">
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+        <li>Item D</li>
+    </ul>
+    <form>
+		<input type="button" id="first" value="First child">
+        <input type="button" id="third" value="Third Child">
+	</form>
+    
+</body>
+</html>

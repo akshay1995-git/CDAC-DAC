@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function calculate(){
+            var r=parseInt(document.getElementById("rad").value);
+           
+            document.getElementById("r1").innerHTML="Area : "+Math.PI*r*r;
+            var cir=(2*Math.PI*r);
+            document.getElementById("p1").innerHTML="Circumference : "+cir;
+        }
+    </script>
+   
+</head>
+<body>
+    <form>
+        Enter a Radius:<input type="text" name="rad" id="rad"><br><br>
+        <input type="button" name="sub" onclick="calculate()" value="Calculate"><br>
+        <span id="r1"></span><br><br>
+        <span id="p1"></span>
+    </form>
+    
+</body>
+</html>

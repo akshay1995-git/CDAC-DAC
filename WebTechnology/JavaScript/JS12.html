@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	div{
+		width: 400px;
+	}
+	td{
+		font-size:20px;
+	}
+	hr{
+		border-top: 1px dashed;
+		width: 410px;
+		margin-left: 0px;
+	}
+	
+
+    </style>
+    <script>
+    	  var p,r,t,result;
+        function interest(p,r,t){
+            result=p*Math.pow((1+r/100),t);
+            return result-p;
+        }
+    </script>
+	
+</head>
+<body>
+
+	<table width="430px">
+		<hr>
+         <h2>*****Calculate Compound Interest*****</h2>
+		<hr>
+		<div>
+		<tr><td>Principle</td><td>-</td><td>1000</td></tr>
+		<tr><td>Rate of Interest</td><td>-</td><td>10%</td></tr>
+		<tr><td>Year</td><td>-</td><td>1 year</td></tr>
+		<tr><td>Compound Interest</td><td>-</td><td> <script>
+			                     document.write(interest(1000,10,1))</script></td></tr>
+	    </div>
+
+	</table>
+	<hr>
+
+
+</body>
+</html>
