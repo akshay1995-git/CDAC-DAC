@@ -1,0 +1,158 @@
+1) Display all records in EMP table those were joined before SCOTT joined?
+
+==> mysql> select * from emp where year(hiredate)<'1982-12-09';
+
+2) Display details of department where department has 3 employees?
+
+==>mysql> select job,count(job) from emp group by job;
+
+3) Display details of department with Minimum salary and maximum salary?
+
+==>mysql> select min(sal),max(sal) from emp;
++----------+----------+
+| min(sal) | max(sal) |
++----------+----------+
+|      800 |     5000 |
++----------+----------+
+1 row in set (0.00 sec)
+
+4) Display all ename, sal, deptno,dname from emp, dept table where all department which has employees as well as department does not have any employees. This query should include non matching rows.
+
+mysql> select
+    -> ename,sal,dname,d1.deptno
+    -> from
+    -> emp e1
+    -> right outer join
+    -> dept d1
+    -> on
+    -> e1.deptno = d1.deptno;
+
+5) Display all ename, sal, deptno from emp, dept table where all employees which has matching department as well as employee does not have any departments. This query should include non matching rows.
+
+
+SELECT 
+ENAME,SAL,DNAME,D1.DEPTNO
+FROM
+EMP E1
+LEFT OUTER JOIN
+DEPT D1
+ON 
+E1.DEPTNO=D1.DEPTNO;
+
+mysql> SELECT
+    -> ENAME,SAL,DNAME,D1.DEPTNO
+    -> FROM
+    -> EMP E1
+    -> LEFT OUTER JOIN
+    -> DEPT D1
+    -> ON
+    -> E1.DEPTNO=D1.DEPTNO;
++--------+------+------------+--------+
+| ENAME  | SAL  | DNAME      | DEPTNO |
++--------+------+------------+--------+
+| SMITH  |  800 | RESEARCH   |     20 |
+| ALLEN  | 1600 | SALES      |     30 |
+| WARD   | 1250 | SALES      |     30 |
+| JONES  | 2975 | RESEARCH   |     20 |
+| MARTIN | 1250 | SALES      |     30 |
+| BLAKE  | 2850 | SALES      |     30 |
+| CLARK  | 2450 | ACCOUNTING |     10 |
+| SCOTT  | 3000 | RESEARCH   |     20 |
+| KING   | 5000 | ACCOUNTING |     10 |
+| TURNER | 1500 | SALES      |     30 |
+| ADAMS  | 1100 | RESEARCH   |     20 |
+| JAMES  |  950 | SALES      |     30 |
+| FORD   | 3000 | RESEARCH   |     20 |
+| MILLER | 1300 | ACCOUNTING |     10 |
++--------+------+------------+--------+
+14 rows in set (0.00 sec)
+6) Display all ename, sal, dname. Result must include all employees as well as all departments. This query should include non matching rows on both the tables.
+
+SELECT 
+ENAME,SAL,DNAME,D1.DEPTNO
+FROM 
+EMP E1
+FULL OUTER JOIN
+DEPT D1
+ON
+E1.DEPTNO=D1.DEPTNO;
+
+7) Display all ename, empno, dname from emp, dept table without joining two tables
+
+mysql> select * from emp,dept;
+
+8) Display all the departments where department does not have any employees
+
+==>select deptno from emp group by deptno having count(*)=0;
+Empty set (0.00 sec)
+
+9) Display all the departments where department does have atleast one employee
+
+==>>
+mysql> select deptno from emp group by deptno having count(deptno)=1;
+Empty set (0.00 sec)
+
+10) Display all employees those who are not managers?
+
+==>> mysql> select * from emp where job not in ('manager');
+
+11) Display all the records for deptno which belongs to employee name JAMES?
+==>>
+mysql> select * from emp where ename in ('james');
++-------+-------+-------+------+------------+------+------+--------+
+| EMPNO | ENAME | JOB   | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
++-------+-------+-------+------+------------+------+------+--------+
+|  7900 | JAMES | CLERK | 7698 | 1981-12-03 |  950 | NULL |     30 |
++-------+-------+-------+------+------------+------+------+--------+
+
+12) Display all the records in emp table where salary should be less then or equal to ADAMS salary?
+
+==>
+mysql> select * from emp where sal<=1100;
++-------+-------+-------+------+------------+------+------+--------+
+| EMPNO | ENAME | JOB   | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
++-------+-------+-------+------+------------+------+------+--------+
+|  7369 | SMITH | CLERK | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7876 | ADAMS | CLERK | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES | CLERK | 7698 | 1981-12-03 |  950 | NULL |     30 |
++-------+-------+-------+------+------------+------+------+--------+
+13) Display ename, sal, grade, dname, loc for each employee.
+==>mysql> select empno,ename,b.deptno,dname,grade from
+    -> emp a,dept b, salgrade c
+    -> where a.deptno = b.deptno
+    -> and sal between losal and hisal;
++-------+--------+--------+------------+-------+
+| empno | ename  | deptno | dname      | grade |
++-------+--------+--------+------------+-------+
+|  7369 | SMITH  |     20 | RESEARCH   |     1 |
+|  7876 | ADAMS  |     20 | RESEARCH   |     1 |
+|  7900 | JAMES  |     30 | SALES      |     1 |
+|  7521 | WARD   |     30 | SALES      |     2 |
+|  7654 | MARTIN |     30 | SALES      |     2 |
+|  7934 | MILLER |     10 | ACCOUNTING |     2 |
+|  7499 | ALLEN  |     30 | SALES      |     3 |
+|  7844 | TURNER |     30 | SALES      |     3 |
+|  7566 | JONES  |     20 | RESEARCH   |     4 |
+|  7698 | BLAKE  |     30 | SALES      |     4 |
+|  7782 | CLARK  |     10 | ACCOUNTING |     4 |
+|  7788 | SCOTT  |     20 | RESEARCH   |     4 |
+|  7902 | FORD   |     20 | RESEARCH   |     4 |
+|  7839 | KING   |     10 | ACCOUNTING |     5 |
++-------+--------+--------+------------+-------+
+14 rows in set (0.03 sec)
+
+14) Display all employee whose location is DALLAS?
+
+mysql> select emp.ename, emp.job, emp.deptno
+    -> from emp
+    -> where deptno in(select deptno from dept where loc='DALLAS');
++-------+---------+--------+
+| ename | job     | deptno |
++-------+---------+--------+
+| SMITH | CLERK   |     20 |
+| JONES | MANAGER |     20 |
+| SCOTT | ANALYST |     20 |
+| ADAMS | CLERK   |     20 |
+| FORD  | ANALYST |     20 |
++-------+---------+--------+
+5 rows in set (0.00 sec)

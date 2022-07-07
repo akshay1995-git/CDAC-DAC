@@ -1,0 +1,1106 @@
+1.The HR department needs a report of all employees. Write a query to display the last name, department number, and department name for all the employees.
+
+SELECT E1.LAST_NAME,E1.DEPARTMENT_ID,D1.DEPARTMENT_NAME 
+FROM EMPLOYEES E1
+INNER JOIN 
+DEPARTMENTS D1
+ON
+E1.DEPARTMENT_ID=D1.DEPARTMENT_ID;
+Database changed
+mysql> SELECT E1.LAST_NAME,E1.DEPARTMENT_ID,D1.DEPARTMENT_NAME
+    -> FROM EMPLOYEES E1
+    -> INNER JOIN
+    -> DEPARTMENTS D1
+    -> ON
+    -> E1.DEPARTMENT_ID=D1.DEPARTMENT_ID;
++-------------+---------------+------------------+
+| LAST_NAME   | DEPARTMENT_ID | DEPARTMENT_NAME  |
++-------------+---------------+------------------+
+| Whalen      |            10 | Administration   |
+| Hartstein   |            20 | Marketing        |
+| Fay         |            20 | Marketing        |
+| Raphaely    |            30 | Purchasing       |
+| Khoo        |            30 | Purchasing       |
+| Baida       |            30 | Purchasing       |
+| Tobias      |            30 | Purchasing       |
+| Himuro      |            30 | Purchasing       |
+| Colmenares  |            30 | Purchasing       |
+| Mavris      |            40 | Human Resources  |
+| Weiss       |            50 | Shipping         |
+| Fripp       |            50 | Shipping         |
+| Kaufling    |            50 | Shipping         |
+| Vollman     |            50 | Shipping         |
+| Mourgos     |            50 | Shipping         |
+| Nayer       |            50 | Shipping         |
+| Mikkilineni |            50 | Shipping         |
+| Landry      |            50 | Shipping         |
+| Markle      |            50 | Shipping         |
+| Bissot      |            50 | Shipping         |
+| Atkinson    |            50 | Shipping         |
+| Marlow      |            50 | Shipping         |
+| Olson       |            50 | Shipping         |
+| Mallin      |            50 | Shipping         |
+| Rogers      |            50 | Shipping         |
+| Gee         |            50 | Shipping         |
+| Philtanker  |            50 | Shipping         |
+| Ladwig      |            50 | Shipping         |
+| Stiles      |            50 | Shipping         |
+| Seo         |            50 | Shipping         |
+| Patel       |            50 | Shipping         |
+| Rajs        |            50 | Shipping         |
+| Davies      |            50 | Shipping         |
+| Matos       |            50 | Shipping         |
+| Vargas      |            50 | Shipping         |
+| Taylor      |            50 | Shipping         |
+| Fleaur      |            50 | Shipping         |
+| Sullivan    |            50 | Shipping         |
+| Geoni       |            50 | Shipping         |
+| Sarchand    |            50 | Shipping         |
+| Bull        |            50 | Shipping         |
+| Dellinger   |            50 | Shipping         |
+| Cabrio      |            50 | Shipping         |
+| Chung       |            50 | Shipping         |
+| Dilly       |            50 | Shipping         |
+| Gates       |            50 | Shipping         |
+| Perkins     |            50 | Shipping         |
+| Bell        |            50 | Shipping         |
+| Everett     |            50 | Shipping         |
+| McCain      |            50 | Shipping         |
+| Jones       |            50 | Shipping         |
+| Walsh       |            50 | Shipping         |
+| Feeney      |            50 | Shipping         |
+| OConnell    |            50 | Shipping         |
+| Grant       |            50 | Shipping         |
+| Hunold      |            60 | IT               |
+| Ernst       |            60 | IT               |
+| Austin      |            60 | IT               |
+| Pataballa   |            60 | IT               |
+| Lorentz     |            60 | IT               |
+| Baer        |            70 | Public Relations |
+| Russell     |            80 | Sales            |
+| Partners    |            80 | Sales            |
+| Errazuriz   |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Zlotkey     |            80 | Sales            |
+| Tucker      |            80 | Sales            |
+| Bernstein   |            80 | Sales            |
+| Hall        |            80 | Sales            |
+| Olsen       |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Tuvault     |            80 | Sales            |
+| King        |            80 | Sales            |
+| Sully       |            80 | Sales            |
+| McEwen      |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Doran       |            80 | Sales            |
+| Sewall      |            80 | Sales            |
+| Vishney     |            80 | Sales            |
+| Greene      |            80 | Sales            |
+| Marvins     |            80 | Sales            |
+| Lee         |            80 | Sales            |
+| Ande        |            80 | Sales            |
+| Banda       |            80 | Sales            |
+| Ozer        |            80 | Sales            |
+| Bloom       |            80 | Sales            |
+| Fox         |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Bates       |            80 | Sales            |
+| Kumar       |            80 | Sales            |
+| Abel        |            80 | Sales            |
+| Hutton      |            80 | Sales            |
+| Taylor      |            80 | Sales            |
+| Livingston  |            80 | Sales            |
+| Johnson     |            80 | Sales            |
+| King        |            90 | Executive        |
+| Kochhar     |            90 | Executive        |
+| De Haan     |            90 | Executive        |
+| Greenberg   |           100 | Finance          |
+| Faviet      |           100 | Finance          |
+| Chen        |           100 | Finance          |
+| Sciarra     |           100 | Finance          |
+| Urman       |           100 | Finance          |
+| Popp        |           100 | Finance          |
+| Higgins     |           110 | Accounting       |
+| Gietz       |           110 | Accounting       |
++-------------+---------------+------------------+
+106 rows in set (0.01 sec)
+
+mysql>
+
+
+====================================================================
+2. The HR department needs a report of employees in Toronto. 
+Display the last name, job, department number, and the department name for all employees who work in Toronto.
+SELECT 
+E1.LAST_NAME,E1.JOB_ID,E1.DEPARTMENT_ID,
+D1.DEPARTMENT_NAME 
+FROM
+EMPLOYEES E1
+INNER JOIN
+DEPARTMENTS D1
+ON
+E1.DEPARTMENT_ID=D1.DEPARTMENT_ID
+INNER JOIN
+LOCATIONS L1
+ON
+D1.LOCATION_ID=L1.LOCATION_ID
+WHERE L1.CITY='TORONTO';
+
+mysql> SELECT
+    -> E1.LAST_NAME,E1.JOB_ID,E1.DEPARTMENT_ID,
+    -> D1.DEPARTMENT_NAME
+    -> FROM
+    -> EMPLOYEES E1
+    -> INNER JOIN
+    -> DEPARTMENTS D1
+    -> ON
+    -> E1.DEPARTMENT_ID=D1.DEPARTMENT_ID
+    -> INNER JOIN
+    -> LOCATIONS L1
+    -> ON
+    -> D1.LOCATION_ID=L1.LOCATION_ID
+    -> WHERE L1.CITY='TORONTO';
++-----------+--------+---------------+-----------------+
+| LAST_NAME | JOB_ID | DEPARTMENT_ID | DEPARTMENT_NAME |
++-----------+--------+---------------+-----------------+
+| Hartstein | MK_MAN |            20 | Marketing       |
+| Fay       | MK_REP |            20 | Marketing       |
++-----------+--------+---------------+-----------------+
+2 rows in set (0.00 sec)
+===========================================================
+3. Create a report to display employees’ last name and employee number along with their manager’s last name and manager number.
+ Label the columns Employee, Emp#, Manager, and Mgr#, respectively. 
+ 
+SELECT 
+E1.LAST_NAME AS "EMPLOYEE",E1.EMPLOYEE_ID AS "EMP#",
+E2.LAST_NAME AS "MANAGER",E2.EMPLOYEE_ID AS "MGR#"
+FROM
+EMPLOYEES E1
+INNER JOIN
+EMPLOYEES E2
+ON
+(E1.MANAGER_ID=E2.EMPLOYEE_ID);
+
+mysql> SELECT
+    -> E1.LAST_NAME AS "EMPLOYEE",E1.EMPLOYEE_ID AS "EMP#",
+    -> E2.LAST_NAME AS "MANAGER",E2.EMPLOYEE_ID AS "MGR#"
+    -> FROM
+    -> EMPLOYEES E1
+    -> INNER JOIN
+    -> EMPLOYEES E2
+    -> ON
+    -> (E1.MANAGER_ID=E2.EMPLOYEE_ID);
++-------------+------+-----------+------+
+| EMPLOYEE    | EMP# | MANAGER   | MGR# |
++-------------+------+-----------+------+
+| Kochhar     |  101 | King      |  100 |
+| De Haan     |  102 | King      |  100 |
+| Hunold      |  103 | De Haan   |  102 |
+| Ernst       |  104 | Hunold    |  103 |
+| Austin      |  105 | Hunold    |  103 |
+| Pataballa   |  106 | Hunold    |  103 |
+| Lorentz     |  107 | Hunold    |  103 |
+| Greenberg   |  108 | Kochhar   |  101 |
+| Faviet      |  109 | Greenberg |  108 |
+| Chen        |  110 | Greenberg |  108 |
+| Sciarra     |  111 | Greenberg |  108 |
+| Urman       |  112 | Greenberg |  108 |
+| Popp        |  113 | Greenberg |  108 |
+| Raphaely    |  114 | King      |  100 |
+| Khoo        |  115 | Raphaely  |  114 |
+| Baida       |  116 | Raphaely  |  114 |
+| Tobias      |  117 | Raphaely  |  114 |
+| Himuro      |  118 | Raphaely  |  114 |
+| Colmenares  |  119 | Raphaely  |  114 |
+| Weiss       |  120 | King      |  100 |
+| Fripp       |  121 | King      |  100 |
+| Kaufling    |  122 | King      |  100 |
+| Vollman     |  123 | King      |  100 |
+| Mourgos     |  124 | King      |  100 |
+| Nayer       |  125 | Weiss     |  120 |
+| Mikkilineni |  126 | Weiss     |  120 |
+| Landry      |  127 | Weiss     |  120 |
+| Markle      |  128 | Weiss     |  120 |
+| Bissot      |  129 | Fripp     |  121 |
+| Atkinson    |  130 | Fripp     |  121 |
+| Marlow      |  131 | Fripp     |  121 |
+| Olson       |  132 | Fripp     |  121 |
+| Mallin      |  133 | Kaufling  |  122 |
+| Rogers      |  134 | Kaufling  |  122 |
+| Gee         |  135 | Kaufling  |  122 |
+| Philtanker  |  136 | Kaufling  |  122 |
+| Ladwig      |  137 | Vollman   |  123 |
+| Stiles      |  138 | Vollman   |  123 |
+| Seo         |  139 | Vollman   |  123 |
+| Patel       |  140 | Vollman   |  123 |
+| Rajs        |  141 | Mourgos   |  124 |
+| Davies      |  142 | Mourgos   |  124 |
+| Matos       |  143 | Mourgos   |  124 |
+| Vargas      |  144 | Mourgos   |  124 |
+| Russell     |  145 | King      |  100 |
+| Partners    |  146 | King      |  100 |
+| Errazuriz   |  147 | King      |  100 |
+| Cambrault   |  148 | King      |  100 |
+| Zlotkey     |  149 | King      |  100 |
+| Tucker      |  150 | Russell   |  145 |
+| Bernstein   |  151 | Russell   |  145 |
+| Hall        |  152 | Russell   |  145 |
+| Olsen       |  153 | Russell   |  145 |
+| Cambrault   |  154 | Russell   |  145 |
+| Tuvault     |  155 | Russell   |  145 |
+| King        |  156 | Partners  |  146 |
+| Sully       |  157 | Partners  |  146 |
+| McEwen      |  158 | Partners  |  146 |
+| Smith       |  159 | Partners  |  146 |
+| Doran       |  160 | Partners  |  146 |
+| Sewall      |  161 | Partners  |  146 |
+| Vishney     |  162 | Errazuriz |  147 |
+| Greene      |  163 | Errazuriz |  147 |
+| Marvins     |  164 | Errazuriz |  147 |
+| Lee         |  165 | Errazuriz |  147 |
+| Ande        |  166 | Errazuriz |  147 |
+| Banda       |  167 | Errazuriz |  147 |
+| Ozer        |  168 | Cambrault |  148 |
+| Bloom       |  169 | Cambrault |  148 |
+| Fox         |  170 | Cambrault |  148 |
+| Smith       |  171 | Cambrault |  148 |
+| Bates       |  172 | Cambrault |  148 |
+| Kumar       |  173 | Cambrault |  148 |
+| Abel        |  174 | Zlotkey   |  149 |
+| Hutton      |  175 | Zlotkey   |  149 |
+| Taylor      |  176 | Zlotkey   |  149 |
+| Livingston  |  177 | Zlotkey   |  149 |
+| Grant       |  178 | Zlotkey   |  149 |
+| Johnson     |  179 | Zlotkey   |  149 |
+| Taylor      |  180 | Weiss     |  120 |
+| Fleaur      |  181 | Weiss     |  120 |
+| Sullivan    |  182 | Weiss     |  120 |
+| Geoni       |  183 | Weiss     |  120 |
+| Sarchand    |  184 | Fripp     |  121 |
+| Bull        |  185 | Fripp     |  121 |
+| Dellinger   |  186 | Fripp     |  121 |
+| Cabrio      |  187 | Fripp     |  121 |
+| Chung       |  188 | Kaufling  |  122 |
+| Dilly       |  189 | Kaufling  |  122 |
+| Gates       |  190 | Kaufling  |  122 |
+| Perkins     |  191 | Kaufling  |  122 |
+| Bell        |  192 | Vollman   |  123 |
+| Everett     |  193 | Vollman   |  123 |
+| McCain      |  194 | Vollman   |  123 |
+| Jones       |  195 | Vollman   |  123 |
+| Walsh       |  196 | Mourgos   |  124 |
+| Feeney      |  197 | Mourgos   |  124 |
+| OConnell    |  198 | Mourgos   |  124 |
+| Grant       |  199 | Mourgos   |  124 |
+| Whalen      |  200 | Kochhar   |  101 |
+| Hartstein   |  201 | King      |  100 |
+| Fay         |  202 | Hartstein |  201 |
+| Mavris      |  203 | Kochhar   |  101 |
+| Baer        |  204 | Kochhar   |  101 |
+| Higgins     |  205 | Kochhar   |  101 |
+| Gietz       |  206 | Higgins   |  205 |
++-------------+------+-----------+------+
+106 rows in set (0.00 sec)
+
+mysql>
+=================================================================
+ 
+ 
+
+4. WAQ to display all employees including King, who has no manager. Order the results by the employee number. 
+SELECT 
+E1.last_name "Employee", E1.employee_id "EMP#",
+E2.last_name "Manager", E2.employee_id "Mgr#"
+FROM 
+employees E1
+LEFT OUTER JOIN 
+employees E2
+ON 
+(E1.manager_id = E2.employee_id)
+ORDER BY 
+E1.EMPLOYEE_ID;
+
+mysql> SELECT
+    -> E1.last_name "Employee", E1.employee_id "EMP#",
+    -> E2.last_name "Manager", E2.employee_id "Mgr#"
+    -> FROM
+    -> employees E1
+    -> LEFT OUTER JOIN
+    -> employees E2
+    -> ON
+    -> (E1.manager_id = E2.employee_id)
+    -> ORDER BY
+    -> E1.EMPLOYEE_ID;
++-------------+------+-----------+------+
+| Employee    | EMP# | Manager   | Mgr# |
++-------------+------+-----------+------+
+| King        |  100 | NULL      | NULL |
+| Kochhar     |  101 | King      |  100 |
+| De Haan     |  102 | King      |  100 |
+| Hunold      |  103 | De Haan   |  102 |
+| Ernst       |  104 | Hunold    |  103 |
+| Austin      |  105 | Hunold    |  103 |
+| Pataballa   |  106 | Hunold    |  103 |
+| Lorentz     |  107 | Hunold    |  103 |
+| Greenberg   |  108 | Kochhar   |  101 |
+| Faviet      |  109 | Greenberg |  108 |
+| Chen        |  110 | Greenberg |  108 |
+| Sciarra     |  111 | Greenberg |  108 |
+| Urman       |  112 | Greenberg |  108 |
+| Popp        |  113 | Greenberg |  108 |
+| Raphaely    |  114 | King      |  100 |
+| Khoo        |  115 | Raphaely  |  114 |
+| Baida       |  116 | Raphaely  |  114 |
+| Tobias      |  117 | Raphaely  |  114 |
+| Himuro      |  118 | Raphaely  |  114 |
+| Colmenares  |  119 | Raphaely  |  114 |
+| Weiss       |  120 | King      |  100 |
+| Fripp       |  121 | King      |  100 |
+| Kaufling    |  122 | King      |  100 |
+| Vollman     |  123 | King      |  100 |
+| Mourgos     |  124 | King      |  100 |
+| Nayer       |  125 | Weiss     |  120 |
+| Mikkilineni |  126 | Weiss     |  120 |
+| Landry      |  127 | Weiss     |  120 |
+| Markle      |  128 | Weiss     |  120 |
+| Bissot      |  129 | Fripp     |  121 |
+| Atkinson    |  130 | Fripp     |  121 |
+| Marlow      |  131 | Fripp     |  121 |
+| Olson       |  132 | Fripp     |  121 |
+| Mallin      |  133 | Kaufling  |  122 |
+| Rogers      |  134 | Kaufling  |  122 |
+| Gee         |  135 | Kaufling  |  122 |
+| Philtanker  |  136 | Kaufling  |  122 |
+| Ladwig      |  137 | Vollman   |  123 |
+| Stiles      |  138 | Vollman   |  123 |
+| Seo         |  139 | Vollman   |  123 |
+| Patel       |  140 | Vollman   |  123 |
+| Rajs        |  141 | Mourgos   |  124 |
+| Davies      |  142 | Mourgos   |  124 |
+| Matos       |  143 | Mourgos   |  124 |
+| Vargas      |  144 | Mourgos   |  124 |
+| Russell     |  145 | King      |  100 |
+| Partners    |  146 | King      |  100 |
+| Errazuriz   |  147 | King      |  100 |
+| Cambrault   |  148 | King      |  100 |
+| Zlotkey     |  149 | King      |  100 |
+| Tucker      |  150 | Russell   |  145 |
+| Bernstein   |  151 | Russell   |  145 |
+| Hall        |  152 | Russell   |  145 |
+| Olsen       |  153 | Russell   |  145 |
+| Cambrault   |  154 | Russell   |  145 |
+| Tuvault     |  155 | Russell   |  145 |
+| King        |  156 | Partners  |  146 |
+| Sully       |  157 | Partners  |  146 |
+| McEwen      |  158 | Partners  |  146 |
+| Smith       |  159 | Partners  |  146 |
+| Doran       |  160 | Partners  |  146 |
+| Sewall      |  161 | Partners  |  146 |
+| Vishney     |  162 | Errazuriz |  147 |
+| Greene      |  163 | Errazuriz |  147 |
+| Marvins     |  164 | Errazuriz |  147 |
+| Lee         |  165 | Errazuriz |  147 |
+| Ande        |  166 | Errazuriz |  147 |
+| Banda       |  167 | Errazuriz |  147 |
+| Ozer        |  168 | Cambrault |  148 |
+| Bloom       |  169 | Cambrault |  148 |
+| Fox         |  170 | Cambrault |  148 |
+| Smith       |  171 | Cambrault |  148 |
+| Bates       |  172 | Cambrault |  148 |
+| Kumar       |  173 | Cambrault |  148 |
+| Abel        |  174 | Zlotkey   |  149 |
+| Hutton      |  175 | Zlotkey   |  149 |
+| Taylor      |  176 | Zlotkey   |  149 |
+| Livingston  |  177 | Zlotkey   |  149 |
+| Grant       |  178 | Zlotkey   |  149 |
+| Johnson     |  179 | Zlotkey   |  149 |
+| Taylor      |  180 | Weiss     |  120 |
+| Fleaur      |  181 | Weiss     |  120 |
+| Sullivan    |  182 | Weiss     |  120 |
+| Geoni       |  183 | Weiss     |  120 |
+| Sarchand    |  184 | Fripp     |  121 |
+| Bull        |  185 | Fripp     |  121 |
+| Dellinger   |  186 | Fripp     |  121 |
+| Cabrio      |  187 | Fripp     |  121 |
+| Chung       |  188 | Kaufling  |  122 |
+| Dilly       |  189 | Kaufling  |  122 |
+| Gates       |  190 | Kaufling  |  122 |
+| Perkins     |  191 | Kaufling  |  122 |
+| Bell        |  192 | Vollman   |  123 |
+| Everett     |  193 | Vollman   |  123 |
+| McCain      |  194 | Vollman   |  123 |
+| Jones       |  195 | Vollman   |  123 |
+| Walsh       |  196 | Mourgos   |  124 |
+| Feeney      |  197 | Mourgos   |  124 |
+| OConnell    |  198 | Mourgos   |  124 |
+| Grant       |  199 | Mourgos   |  124 |
+| Whalen      |  200 | Kochhar   |  101 |
+| Hartstein   |  201 | King      |  100 |
+| Fay         |  202 | Hartstein |  201 |
+| Mavris      |  203 | Kochhar   |  101 |
+| Baer        |  204 | Kochhar   |  101 |
+| Higgins     |  205 | Kochhar   |  101 |
+| Gietz       |  206 | Higgins   |  205 |
++-------------+------+-----------+------+
+107 rows in set (0.00 sec)
+
+=======================================================================================================================
+
+5. Create a report for the HR department that displays employee last names, department numbers, 
+and all the employees who work in the same department as a given employee. Give each column an appropriate label. 
+
+SELECT
+E1.DEPARTMENT_ID AS DEPARTMENT,E1.LAST_NAME AS "EMPLOYEE NAME",
+E2.LAST_NAME AS  COLLEAGUE
+FROM
+EMPLOYEES E1
+JOIN
+EMPLOYEES E2
+ON
+(E1.DEPARTMENT_ID =E2.DEPARTMENT_ID)
+WHERE E1.EMPLOYEE_ID <> E2.EMPLOYEE_ID
+ORDER BY E1.DEPARTMENT_ID,E1.LAST_NAME,E2.LAST_NAME;
+
+==============================================================
+
+6. The HR department needs a report on job grades and salaries. 
+To familiarize yourself with the JOB_GRADES table, first show the structure of the JOB_GRADES table. 
+Then create a query that displays the name, job, department name, salary, and grade for all employees.
+
+DESC JOB_GRADES;
+
+SELECT E1.last_name, E1.job_id, D1.department_name,E1.salary, J1.grade_level
+FROM   employees E1, departments D1, job_grades J1 
+WHERE  E1.department_id = D1.department_id
+AND   
+E1.salary BETWEEN J1.lowest_sal AND J1.highest_sal;
+
+mysql> DESC JOB_GRADES;
++-------------+------------+------+-----+---------+-------+
+| Field       | Type       | Null | Key | Default | Extra |
++-------------+------------+------+-----+---------+-------+
+| grade_level | varchar(5) | YES  |     | NULL    |       |
+| lowest_sal  | int        | YES  |     | NULL    |       |
+| highest_sal | int        | YES  |     | NULL    |       |
++-------------+------------+------+-----+---------+-------+
+3 rows in set (0.07 sec)
+
+mysql>
+mysql> SELECT E1.last_name, E1.job_id, D1.department_name,E1.salary, J1.grade_level
+    -> FROM   employees E1, departments D1, job_grades J1
+    -> WHERE  E1.department_id = D1.department_id
+    -> AND
+    -> E1.salary BETWEEN J1.lowest_sal AND J1.highest_sal;
++-------------+------------+------------------+----------+-------------+
+| last_name   | job_id     | department_name  | salary   | grade_level |
++-------------+------------+------------------+----------+-------------+
+| King        | AD_PRES    | Executive        | 24000.00 | E           |
+| Kochhar     | AD_VP      | Executive        | 17000.00 | E           |
+| De Haan     | AD_VP      | Executive        | 17000.00 | E           |
+| Hunold      | IT_PROG    | IT               |  9000.00 | C           |
+| Ernst       | IT_PROG    | IT               |  6000.00 | C           |
+| Austin      | IT_PROG    | IT               |  4800.00 | B           |
+| Pataballa   | IT_PROG    | IT               |  4800.00 | B           |
+| Lorentz     | IT_PROG    | IT               |  4200.00 | B           |
+| Greenberg   | FI_MGR     | Finance          | 12000.00 | D           |
+| Faviet      | FI_ACCOUNT | Finance          |  9000.00 | C           |
+| Chen        | FI_ACCOUNT | Finance          |  8200.00 | C           |
+| Sciarra     | FI_ACCOUNT | Finance          |  7700.00 | C           |
+| Urman       | FI_ACCOUNT | Finance          |  7800.00 | C           |
+| Popp        | FI_ACCOUNT | Finance          |  6900.00 | C           |
+| Raphaely    | PU_MAN     | Purchasing       | 11000.00 | D           |
+| Khoo        | PU_CLERK   | Purchasing       |  3100.00 | B           |
+| Baida       | PU_CLERK   | Purchasing       |  2900.00 | A           |
+| Tobias      | PU_CLERK   | Purchasing       |  2800.00 | A           |
+| Himuro      | PU_CLERK   | Purchasing       |  2600.00 | A           |
+| Colmenares  | PU_CLERK   | Purchasing       |  2500.00 | A           |
+| Weiss       | ST_MAN     | Shipping         |  8000.00 | C           |
+| Fripp       | ST_MAN     | Shipping         |  8200.00 | C           |
+| Kaufling    | ST_MAN     | Shipping         |  7900.00 | C           |
+| Vollman     | ST_MAN     | Shipping         |  6500.00 | C           |
+| Mourgos     | ST_MAN     | Shipping         |  5800.00 | B           |
+| Nayer       | ST_CLERK   | Shipping         |  3200.00 | B           |
+| Mikkilineni | ST_CLERK   | Shipping         |  2700.00 | A           |
+| Landry      | ST_CLERK   | Shipping         |  2400.00 | A           |
+| Markle      | ST_CLERK   | Shipping         |  2200.00 | A           |
+| Bissot      | ST_CLERK   | Shipping         |  3300.00 | B           |
+| Atkinson    | ST_CLERK   | Shipping         |  2800.00 | A           |
+| Marlow      | ST_CLERK   | Shipping         |  2500.00 | A           |
+| Olson       | ST_CLERK   | Shipping         |  2100.00 | A           |
+| Mallin      | ST_CLERK   | Shipping         |  3300.00 | B           |
+| Rogers      | ST_CLERK   | Shipping         |  2900.00 | A           |
+| Gee         | ST_CLERK   | Shipping         |  2400.00 | A           |
+| Philtanker  | ST_CLERK   | Shipping         |  2200.00 | A           |
+| Ladwig      | ST_CLERK   | Shipping         |  3600.00 | B           |
+| Stiles      | ST_CLERK   | Shipping         |  3200.00 | B           |
+| Seo         | ST_CLERK   | Shipping         |  2700.00 | A           |
+| Patel       | ST_CLERK   | Shipping         |  2500.00 | A           |
+| Rajs        | ST_CLERK   | Shipping         |  3500.00 | B           |
+| Davies      | ST_CLERK   | Shipping         |  3100.00 | B           |
+| Matos       | ST_CLERK   | Shipping         |  2600.00 | A           |
+| Vargas      | ST_CLERK   | Shipping         |  2500.00 | A           |
+| Russell     | SA_MAN     | Sales            | 14000.00 | D           |
+| Partners    | SA_MAN     | Sales            | 13500.00 | D           |
+| Errazuriz   | SA_MAN     | Sales            | 12000.00 | D           |
+| Cambrault   | SA_MAN     | Sales            | 11000.00 | D           |
+| Zlotkey     | SA_MAN     | Sales            | 10500.00 | D           |
+| Tucker      | SA_REP     | Sales            | 10000.00 | D           |
+| Bernstein   | SA_REP     | Sales            |  9500.00 | C           |
+| Hall        | SA_REP     | Sales            |  9000.00 | C           |
+| Olsen       | SA_REP     | Sales            |  8000.00 | C           |
+| Cambrault   | SA_REP     | Sales            |  7500.00 | C           |
+| Tuvault     | SA_REP     | Sales            |  7000.00 | C           |
+| King        | SA_REP     | Sales            | 10000.00 | D           |
+| Sully       | SA_REP     | Sales            |  9500.00 | C           |
+| McEwen      | SA_REP     | Sales            |  9000.00 | C           |
+| Smith       | SA_REP     | Sales            |  8000.00 | C           |
+| Doran       | SA_REP     | Sales            |  7500.00 | C           |
+| Sewall      | SA_REP     | Sales            |  7000.00 | C           |
+| Vishney     | SA_REP     | Sales            | 10500.00 | D           |
+| Greene      | SA_REP     | Sales            |  9500.00 | C           |
+| Marvins     | SA_REP     | Sales            |  7200.00 | C           |
+| Lee         | SA_REP     | Sales            |  6800.00 | C           |
+| Ande        | SA_REP     | Sales            |  6400.00 | C           |
+| Banda       | SA_REP     | Sales            |  6200.00 | C           |
+| Ozer        | SA_REP     | Sales            | 11500.00 | D           |
+| Bloom       | SA_REP     | Sales            | 10000.00 | D           |
+| Fox         | SA_REP     | Sales            |  9600.00 | C           |
+| Smith       | SA_REP     | Sales            |  7400.00 | C           |
+| Bates       | SA_REP     | Sales            |  7300.00 | C           |
+| Kumar       | SA_REP     | Sales            |  6100.00 | C           |
+| Abel        | SA_REP     | Sales            | 11000.00 | D           |
+| Hutton      | SA_REP     | Sales            |  8800.00 | C           |
+| Taylor      | SA_REP     | Sales            |  8600.00 | C           |
+| Livingston  | SA_REP     | Sales            |  8400.00 | C           |
+| Johnson     | SA_REP     | Sales            |  6200.00 | C           |
+| Taylor      | SH_CLERK   | Shipping         |  3200.00 | B           |
+| Fleaur      | SH_CLERK   | Shipping         |  3100.00 | B           |
+| Sullivan    | SH_CLERK   | Shipping         |  2500.00 | A           |
+| Geoni       | SH_CLERK   | Shipping         |  2800.00 | A           |
+| Sarchand    | SH_CLERK   | Shipping         |  4200.00 | B           |
+| Bull        | SH_CLERK   | Shipping         |  4100.00 | B           |
+| Dellinger   | SH_CLERK   | Shipping         |  3400.00 | B           |
+| Cabrio      | SH_CLERK   | Shipping         |  3000.00 | B           |
+| Chung       | SH_CLERK   | Shipping         |  3800.00 | B           |
+| Dilly       | SH_CLERK   | Shipping         |  3600.00 | B           |
+| Gates       | SH_CLERK   | Shipping         |  2900.00 | A           |
+| Perkins     | SH_CLERK   | Shipping         |  2500.00 | A           |
+| Bell        | SH_CLERK   | Shipping         |  4000.00 | B           |
+| Everett     | SH_CLERK   | Shipping         |  3900.00 | B           |
+| McCain      | SH_CLERK   | Shipping         |  3200.00 | B           |
+| Jones       | SH_CLERK   | Shipping         |  2800.00 | A           |
+| Walsh       | SH_CLERK   | Shipping         |  3100.00 | B           |
+| Feeney      | SH_CLERK   | Shipping         |  3000.00 | B           |
+| OConnell    | SH_CLERK   | Shipping         |  2600.00 | A           |
+| Grant       | SH_CLERK   | Shipping         |  2600.00 | A           |
+| Whalen      | AD_ASST    | Administration   |  4400.00 | B           |
+| Hartstein   | MK_MAN     | Marketing        | 13000.00 | D           |
+| Fay         | MK_REP     | Marketing        |  6000.00 | C           |
+| Mavris      | HR_REP     | Human Resources  |  6500.00 | C           |
+| Baer        | PR_REP     | Public Relations | 10000.00 | D           |
+| Higgins     | AC_MGR     | Accounting       | 12000.00 | D           |
+| Gietz       | AC_ACCOUNT | Accounting       |  8300.00 | C           |
++-------------+------------+------------------+----------+-------------+
+106 rows in set (0.00 sec)
+
+===================================================================================
+7. WAQ to determine the names of all the employees who were hired after Davies. 
+Create a query to display the name and hire date of any employee hired after employee Davies.
+
+SELECT 
+E1.last_name, 
+E1.hire_date
+FROM  
+employees E1 
+JOIN 
+employees E2
+ON     
+(E2.last_name = 'Davies')
+WHERE  E2.hire_date < E1.hire_date; 
+
+mysql> SELECT
+    -> E1.last_name,
+    -> E1.hire_date
+    -> FROM
+    -> employees E1
+    -> JOIN
+    -> employees E2
+    -> ON
+    -> (E2.last_name = 'Davies')
+    -> WHERE  E2.hire_date < E1.hire_date;
++-------------+------------+
+| last_name   | hire_date  |
++-------------+------------+
+| Austin      | 1997-06-25 |
+| Pataballa   | 1998-02-05 |
+| Lorentz     | 1999-02-07 |
+| Chen        | 1997-09-28 |
+| Sciarra     | 1997-09-30 |
+| Urman       | 1998-03-07 |
+| Popp        | 1999-12-07 |
+| Baida       | 1997-12-24 |
+| Tobias      | 1997-07-24 |
+| Himuro      | 1998-11-15 |
+| Colmenares  | 1999-08-10 |
+| Fripp       | 1997-04-10 |
+| Vollman     | 1997-10-10 |
+| Mourgos     | 1999-11-16 |
+| Nayer       | 1997-07-16 |
+| Mikkilineni | 1998-09-28 |
+| Landry      | 1999-01-14 |
+| Markle      | 2000-03-08 |
+| Bissot      | 1997-08-20 |
+| Atkinson    | 1997-10-30 |
+| Marlow      | 1997-02-16 |
+| Olson       | 1999-04-10 |
+| Rogers      | 1998-08-26 |
+| Gee         | 1999-12-12 |
+| Philtanker  | 2000-02-06 |
+| Stiles      | 1997-10-26 |
+| Seo         | 1998-02-12 |
+| Patel       | 1998-04-06 |
+| Matos       | 1998-03-15 |
+| Vargas      | 1998-07-09 |
+| Errazuriz   | 1997-03-10 |
+| Cambrault   | 1999-10-15 |
+| Zlotkey     | 2000-01-29 |
+| Tucker      | 1997-01-30 |
+| Bernstein   | 1997-03-24 |
+| Hall        | 1997-08-20 |
+| Olsen       | 1998-03-30 |
+| Cambrault   | 1998-12-09 |
+| Tuvault     | 1999-11-23 |
+| Smith       | 1997-03-10 |
+| Doran       | 1997-12-15 |
+| Sewall      | 1998-11-03 |
+| Vishney     | 1997-11-11 |
+| Greene      | 1999-03-19 |
+| Marvins     | 2000-01-24 |
+| Lee         | 2000-02-23 |
+| Ande        | 2000-03-24 |
+| Banda       | 2000-04-21 |
+| Ozer        | 1997-03-11 |
+| Bloom       | 1998-03-23 |
+| Fox         | 1998-01-24 |
+| Smith       | 1999-02-23 |
+| Bates       | 1999-03-24 |
+| Kumar       | 2000-04-21 |
+| Hutton      | 1997-03-19 |
+| Taylor      | 1998-03-24 |
+| Livingston  | 1998-04-23 |
+| Grant       | 1999-05-24 |
+| Johnson     | 2000-01-04 |
+| Taylor      | 1998-01-24 |
+| Fleaur      | 1998-02-23 |
+| Sullivan    | 1999-06-21 |
+| Geoni       | 2000-02-03 |
+| Bull        | 1997-02-20 |
+| Dellinger   | 1998-06-24 |
+| Cabrio      | 1999-02-07 |
+| Chung       | 1997-06-14 |
+| Dilly       | 1997-08-13 |
+| Gates       | 1998-07-11 |
+| Perkins     | 1999-12-19 |
+| Everett     | 1997-03-03 |
+| McCain      | 1998-07-01 |
+| Jones       | 1999-03-17 |
+| Walsh       | 1998-04-24 |
+| Feeney      | 1998-05-23 |
+| OConnell    | 1999-06-21 |
+| Grant       | 2000-01-13 |
+| Fay         | 1997-08-17 |
++-------------+------------+
+78 rows in set (0.00 sec)
+===============================================================================
+8. Write a query to display the last name and hire date of  any employee in the same department as Zlotkey. Exclude Zlotkey.
+
+SELECT last_name, hire_date
+FROM employees
+WHERE department_id = (SELECT department_id
+FROM employees
+WHERE last_name = 'Zlotkey')
+AND last_name <> 'Zlotkey';
+
+mysql> SELECT last_name, hire_date
+    -> FROM employees
+    -> WHERE department_id = (SELECT department_id
+    -> FROM employees
+    -> WHERE last_name = 'Zlotkey')
+    -> AND last_name <> 'Zlotkey';
++------------+------------+
+| last_name  | hire_date  |
++------------+------------+
+| Russell    | 1996-10-01 |
+| Partners   | 1997-01-05 |
+| Errazuriz  | 1997-03-10 |
+| Cambrault  | 1999-10-15 |
+| Tucker     | 1997-01-30 |
+| Bernstein  | 1997-03-24 |
+| Hall       | 1997-08-20 |
+| Olsen      | 1998-03-30 |
+| Cambrault  | 1998-12-09 |
+| Tuvault    | 1999-11-23 |
+| King       | 1996-01-30 |
+| Sully      | 1996-03-04 |
+| McEwen     | 1996-08-01 |
+| Smith      | 1997-03-10 |
+| Doran      | 1997-12-15 |
+| Sewall     | 1998-11-03 |
+| Vishney    | 1997-11-11 |
+| Greene     | 1999-03-19 |
+| Marvins    | 2000-01-24 |
+| Lee        | 2000-02-23 |
+| Ande       | 2000-03-24 |
+| Banda      | 2000-04-21 |
+| Ozer       | 1997-03-11 |
+| Bloom      | 1998-03-23 |
+| Fox        | 1998-01-24 |
+| Smith      | 1999-02-23 |
+| Bates      | 1999-03-24 |
+| Kumar      | 2000-04-21 |
+| Abel       | 1996-05-11 |
+| Hutton     | 1997-03-19 |
+| Taylor     | 1998-03-24 |
+| Livingston | 1998-04-23 |
+| Johnson    | 2000-01-04 |
++------------+------------+
+33 rows in set (0.00 sec)
+
+==================================================================================
+9. Create a query to display the employee numbers and last names of all employees who earn more than the average salary.
+ Sort the results in ascending order of salary.
+ 
+SELECT 
+EMPLOYEE_ID,LAST_NAME
+FROM 
+EMPLOYEES
+WHERE SALARY > (SELECT AVG(SALARY) FROM EMPLOYEES)
+ORDER BY SALARY;
+
+
+mysql> SELECT
+    -> EMPLOYEE_ID,LAST_NAME
+    -> FROM
+    -> EMPLOYEES
+    -> WHERE SALARY > (SELECT AVG(SALARY) FROM EMPLOYEES)
+    -> ORDER BY SALARY;
++-------------+------------+
+| EMPLOYEE_ID | LAST_NAME  |
++-------------+------------+
+|         203 | Mavris     |
+|         123 | Vollman    |
+|         165 | Lee        |
+|         113 | Popp       |
+|         155 | Tuvault    |
+|         161 | Sewall     |
+|         178 | Grant      |
+|         164 | Marvins    |
+|         172 | Bates      |
+|         171 | Smith      |
+|         160 | Doran      |
+|         154 | Cambrault  |
+|         111 | Sciarra    |
+|         112 | Urman      |
+|         122 | Kaufling   |
+|         159 | Smith      |
+|         153 | Olsen      |
+|         120 | Weiss      |
+|         110 | Chen       |
+|         121 | Fripp      |
+|         206 | Gietz      |
+|         177 | Livingston |
+|         176 | Taylor     |
+|         175 | Hutton     |
+|         103 | Hunold     |
+|         109 | Faviet     |
+|         158 | McEwen     |
+|         152 | Hall       |
+|         157 | Sully      |
+|         151 | Bernstein  |
+|         163 | Greene     |
+|         170 | Fox        |
+|         156 | King       |
+|         150 | Tucker     |
+|         169 | Bloom      |
+|         204 | Baer       |
+|         149 | Zlotkey    |
+|         162 | Vishney    |
+|         114 | Raphaely   |
+|         148 | Cambrault  |
+|         174 | Abel       |
+|         168 | Ozer       |
+|         108 | Greenberg  |
+|         147 | Errazuriz  |
+|         205 | Higgins    |
+|         201 | Hartstein  |
+|         146 | Partners   |
+|         145 | Russell    |
+|         101 | Kochhar    |
+|         102 | De Haan    |
+|         100 | King       |
++-------------+------------+
+51 rows in set (0.00 sec)
+==========================================================================================
+
+10. Write a query that displays the employee numbers and last names of all employees 
+who work in a department with any employee whose last name contains a 'u'. 
+
+SELECT EMPLOYEE_ID,LAST_NAME
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID 
+IN (SELECT DEPARTMENT_ID FROM employees
+WHERE 
+LAST_NAME LIKE '%U%');
+
+mysql> SELECT EMPLOYEE_ID,LAST_NAME
+    -> FROM EMPLOYEES
+    -> WHERE DEPARTMENT_ID
+    -> IN (SELECT DEPARTMENT_ID FROM employees
+    -> WHERE
+    -> LAST_NAME LIKE '%U%');
++-------------+-------------+
+| EMPLOYEE_ID | LAST_NAME   |
++-------------+-------------+
+|         103 | Hunold      |
+|         104 | Ernst       |
+|         105 | Austin      |
+|         106 | Pataballa   |
+|         107 | Lorentz     |
+|         108 | Greenberg   |
+|         109 | Faviet      |
+|         110 | Chen        |
+|         111 | Sciarra     |
+|         112 | Urman       |
+|         113 | Popp        |
+|         114 | Raphaely    |
+|         115 | Khoo        |
+|         116 | Baida       |
+|         117 | Tobias      |
+|         118 | Himuro      |
+|         119 | Colmenares  |
+|         120 | Weiss       |
+|         121 | Fripp       |
+|         122 | Kaufling    |
+|         123 | Vollman     |
+|         124 | Mourgos     |
+|         125 | Nayer       |
+|         126 | Mikkilineni |
+|         127 | Landry      |
+|         128 | Markle      |
+|         129 | Bissot      |
+|         130 | Atkinson    |
+|         131 | Marlow      |
+|         132 | Olson       |
+|         133 | Mallin      |
+|         134 | Rogers      |
+|         135 | Gee         |
+|         136 | Philtanker  |
+|         137 | Ladwig      |
+|         138 | Stiles      |
+|         139 | Seo         |
+|         140 | Patel       |
+|         141 | Rajs        |
+|         142 | Davies      |
+|         143 | Matos       |
+|         144 | Vargas      |
+|         180 | Taylor      |
+|         181 | Fleaur      |
+|         182 | Sullivan    |
+|         183 | Geoni       |
+|         184 | Sarchand    |
+|         185 | Bull        |
+|         186 | Dellinger   |
+|         187 | Cabrio      |
+|         188 | Chung       |
+|         189 | Dilly       |
+|         190 | Gates       |
+|         191 | Perkins     |
+|         192 | Bell        |
+|         193 | Everett     |
+|         194 | McCain      |
+|         195 | Jones       |
+|         196 | Walsh       |
+|         197 | Feeney      |
+|         198 | OConnell    |
+|         199 | Grant       |
+|         145 | Russell     |
+|         146 | Partners    |
+|         147 | Errazuriz   |
+|         148 | Cambrault   |
+|         149 | Zlotkey     |
+|         150 | Tucker      |
+|         151 | Bernstein   |
+|         152 | Hall        |
+|         153 | Olsen       |
+|         154 | Cambrault   |
+|         155 | Tuvault     |
+|         156 | King        |
+|         157 | Sully       |
+|         158 | McEwen      |
+|         159 | Smith       |
+|         160 | Doran       |
+|         161 | Sewall      |
+|         162 | Vishney     |
+|         163 | Greene      |
+|         164 | Marvins     |
+|         165 | Lee         |
+|         166 | Ande        |
+|         167 | Banda       |
+|         168 | Ozer        |
+|         169 | Bloom       |
+|         170 | Fox         |
+|         171 | Smith       |
+|         172 | Bates       |
+|         173 | Kumar       |
+|         174 | Abel        |
+|         175 | Hutton      |
+|         176 | Taylor      |
+|         177 | Livingston  |
+|         179 | Johnson     |
++-------------+-------------+
+96 rows in set (0.00 sec)
+======================================================================================================
+
+
+11. Display the last name, department number, and job ID of all employees whose	department location ID is 1700.
+
+SELECT 
+LAST_NAME, DEPARTMENT_ID, JOB_ID
+FROM EMPLOYEES
+WHERE 
+DEPARTMENT_ID IN(SELECT DEPARTMENT_ID
+				FROM DEPARTMENTS
+				WHERE LOCATION_ID = 1700);
+				
+mysql> SELECT
+    -> LAST_NAME, DEPARTMENT_ID, JOB_ID
+    -> FROM EMPLOYEES
+    -> WHERE
+    -> DEPARTMENT_ID IN(SELECT DEPARTMENT_ID
+    -> FROM DEPARTMENTS
+    -> WHERE LOCATION_ID = 1700);
++------------+---------------+------------+
+| LAST_NAME  | DEPARTMENT_ID | JOB_ID     |
++------------+---------------+------------+
+| Whalen     |            10 | AD_ASST    |
+| Raphaely   |            30 | PU_MAN     |
+| Khoo       |            30 | PU_CLERK   |
+| Baida      |            30 | PU_CLERK   |
+| Tobias     |            30 | PU_CLERK   |
+| Himuro     |            30 | PU_CLERK   |
+| Colmenares |            30 | PU_CLERK   |
+| King       |            90 | AD_PRES    |
+| Kochhar    |            90 | AD_VP      |
+| De Haan    |            90 | AD_VP      |
+| Greenberg  |           100 | FI_MGR     |
+| Faviet     |           100 | FI_ACCOUNT |
+| Chen       |           100 | FI_ACCOUNT |
+| Sciarra    |           100 | FI_ACCOUNT |
+| Urman      |           100 | FI_ACCOUNT |
+| Popp       |           100 | FI_ACCOUNT |
+| Higgins    |           110 | AC_MGR     |
+| Gietz      |           110 | AC_ACCOUNT |
++------------+---------------+------------+
+18 rows in set (0.00 sec)
+======================================================================================
+
+12. Display the last name and salary of every employee who reports to King.
+
+SELECT 
+LAST_NAME,SALARY
+FROM EMPLOYEES
+WHERE MANAGER_ID =(SELECT EMPLOYEE_ID FROM EMPLOYEES WHERE LAST_NAME = 'King');
+======================================================================================
+13. Display the department number, last name, and job ID for every employee in the Executive department.
+
+SELECT 
+DEPARTMENT_ID, LAST_NAME, JOB_ID
+FROM EMPLOYEES
+WHERE 
+DEPARTMENT_ID IN (SELECT DEPARTMENT_ID
+FROM DEPARTMENTS
+WHERE DEPARTMENT_NAME = 'EXECUTIVE');
+
+mysql> SELECT
+    -> DEPARTMENT_ID, LAST_NAME, JOB_ID
+    -> FROM EMPLOYEES
+    -> WHERE
+    -> DEPARTMENT_ID IN (SELECT DEPARTMENT_ID
+    -> FROM DEPARTMENTS
+    -> WHERE DEPARTMENT_NAME = 'EXECUTIVE');
++---------------+-----------+---------+
+| DEPARTMENT_ID | LAST_NAME | JOB_ID  |
++---------------+-----------+---------+
+|            90 | King      | AD_PRES |
+|            90 | Kochhar   | AD_VP   |
+|            90 | De Haan   | AD_VP   |
++---------------+-----------+---------+
+3 rows in set (0.00 sec)
+=====================================================================================
+14. WAQ  to display the employee numbers, last names, and salaries of all employees who earn more than the average salary and who work in a department with any employee with a u in their name. 
+
+SELECT 
+EMPLOYEE_ID, LAST_NAME, SALARY
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID IN (SELECT DEPARTMENT_ID
+                        FROM EMPLOYEES
+                        WHERE LAST_NAME LIKE '%U%')
+                        AND salary > (SELECT AVG(SALARY)FROM EMPLOYEES);
+						
+
+mysql> SELECT employee_id, last_name, salary
+    -> FROM employees
+    -> WHERE department_id IN (SELECT department_id
+    -> FROM employees
+    -> WHERE last_name like '%U%')
+    -> AND salary > (SELECT AVG(salary)FROM employees);
++-------------+------------+----------+
+| employee_id | last_name  | salary   |
++-------------+------------+----------+
+|         103 | Hunold     |  9000.00 |
+|         108 | Greenberg  | 12000.00 |
+|         109 | Faviet     |  9000.00 |
+|         110 | Chen       |  8200.00 |
+|         111 | Sciarra    |  7700.00 |
+|         112 | Urman      |  7800.00 |
+|         113 | Popp       |  6900.00 |
+|         114 | Raphaely   | 11000.00 |
+|         120 | Weiss      |  8000.00 |
+|         121 | Fripp      |  8200.00 |
+|         122 | Kaufling   |  7900.00 |
+|         123 | Vollman    |  6500.00 |
+|         145 | Russell    | 14000.00 |
+|         146 | Partners   | 13500.00 |
+|         147 | Errazuriz  | 12000.00 |
+|         148 | Cambrault  | 11000.00 |
+|         149 | Zlotkey    | 10500.00 |
+|         150 | Tucker     | 10000.00 |
+|         151 | Bernstein  |  9500.00 |
+|         152 | Hall       |  9000.00 |
+|         153 | Olsen      |  8000.00 |
+|         154 | Cambrault  |  7500.00 |
+|         155 | Tuvault    |  7000.00 |
+|         156 | King       | 10000.00 |
+|         157 | Sully      |  9500.00 |
+|         158 | McEwen     |  9000.00 |
+|         159 | Smith      |  8000.00 |
+|         160 | Doran      |  7500.00 |
+|         161 | Sewall     |  7000.00 |
+|         162 | Vishney    | 10500.00 |
+|         163 | Greene     |  9500.00 |
+|         164 | Marvins    |  7200.00 |
+|         165 | Lee        |  6800.00 |
+|         168 | Ozer       | 11500.00 |
+|         169 | Bloom      | 10000.00 |
+|         170 | Fox        |  9600.00 |
+|         171 | Smith      |  7400.00 |
+|         172 | Bates      |  7300.00 |
+|         174 | Abel       | 11000.00 |
+|         175 | Hutton     |  8800.00 |
+|         176 | Taylor     |  8600.00 |
+|         177 | Livingston |  8400.00 |
++-------------+------------+----------+
+42 rows in set (0.00 sec)
+
+=========================================================================================================
+======================================================================================================

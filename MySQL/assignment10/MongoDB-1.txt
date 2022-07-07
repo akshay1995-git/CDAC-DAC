@@ -1,0 +1,76 @@
+1.Connect to MongoDB using the console ( by executing the mongo command )
+
+==>>mongo.exe
+
+2.Create a student database
+
+==>>db.createdatabase("student");
+
+3.Connect to student database
+
+==>>use student;
+
+4.Insert following records into the "users" collection:
+
+==>
+
+db.user.insert([
+     
+      {user_id: "abc2", firstName: "Michael", lastName: "Obama", age: 25, gender : "M"},
+      {user_id: "abc3",firstName: "Ram", lastName: "Das", age: 45, gender : "M"},
+      {user_id: "abc4", firstName: "Chetan", lastName: "Barot", age: 30, gender : "M"},
+      {user_id: "abc5", firstName: "Jaya", lastName: "Kumari", age: 35, gender : "F"},
+      {user_id: "abc6", firstName: "Seeta", lastName: "Kumari", age: 22, gender : "F"},
+      {user_id: "abc7", firstName: "Shiv", lastName: "Patil", age: 57, gender : "M"},
+      {user_id: "abc8", firstName: "Rachna", lastName: "Sharma", age: 57, gender : "F"},
+      {user_id: "abc9", firstName: "Alex", lastName: "Mathew", age: 48, gender : "M"},
+      {user_id: "abc10", firstName: "Gracy", lastName: "Abreo", age: 72, gender : "F"},
+      {user_id: "abc11", firstName: "Ranjan", lastName: "Patil", age: 60, gender : "M"}
+     ]);
+db.
+
+5. Display the data from the users collection
+
+==>db.user.find();
+
+6. Sort the records in ascending order of age.
+
+==>>db.user.find().sort({age:1});
+
+7. Display the records with last name Kumari
+
+==>>db.user.find({lastName:"kumari"});
+
+8. Display the records of gender Male.
+
+==>>db.user.find({gender:"M"});
+
+9. Display the only first name, last name and age of users whose age is less than 30 years (Display
+all fields except id and gender)
+
+==>>db.user.find({age:{$lt:30}},{firstNmae:1,lastName:1,age:1});
+
+10. Display the records of age greater than 30 years
+
+==>>db.user.find({age:{$gt:30}});
+
+11. Display the records whose age is 57 years.
+
+==>>db.user.find({age:57});
+
+12. Update the record of user mentioned in (j), set it’s age to 73
+
+==>>db.user.update("_id" : ObjectId("610258a8382778f913cf3802"),$set{age:73});
+
+13. Update the record of user mentioned in (d), increment it’s age by 3.
+
+==>>
+
+14. Remove age from the record (i)
+
+==>db.user.remove({user_id: "abc9"});
+
+15. Remove all the parameters for user with first name “Steve” from the record
+
+==>>db.user.remove({firstName:"steve"});
+

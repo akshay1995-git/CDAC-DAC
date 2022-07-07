@@ -1,0 +1,31 @@
+db.inventory_collection.find({category : "houseware"},{item: 1 , details: 1});
+{ _id: ObjectId("6104cfefe20b73332176e199"),
+  item: 'IJK2',
+  details: { model: '14Q2', manufacturer: 'M5 Corporation' } }
+
+db.inventory_collection.update({"item" : "IJK2", "stock.size" : "S"},{$inc : {"stock.$.qty" : 10}});
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+db.inventory_collection.update({"item" : "IJK2", "stock.size" : "L"},{$inc : {"stock.$.qty" : 10}});
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+db.inventory_collection.update({'item' : 'ABC2'},{$unset : {category: "clothing"}});
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+db.inventory_collection.update({"item" : "MNO2"},{$set : {details: { model: "14P3", manufacturer: "ABC Company" }}});
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }

@@ -1,0 +1,358 @@
+use student;
+'switched to db student'
+db.createCollection("user");
+{ ok: 1 }
+db.user.insert({user_id: "abc1", firstName: "Steve", lastName: "Haines", age: 39, gender : “M”})
+SyntaxError: Unexpected character '“' (1:91)
+
+> 1 | db.user.insert({user_id: "abc1", firstName: "Steve", lastName: "Haines", age: 39, gender : “M”})
+    |                                                                                            ^
+db.user.insert({user_id: "abc1", firstName: "Steve", lastName: "Haines", age: 39, gender : “M”});
+SyntaxError: Unexpected character '“' (1:91)
+
+> 1 | db.user.insert({user_id: "abc1", firstName: "Steve", lastName: "Haines", age: 39, gender : “M”});
+    |                                                                                            ^
+db.user.insert({user_id: “abc1”, firstName: "Steve", lastName: "Haines", age: 39, gender : “M”});
+SyntaxError: Unexpected character '“' (1:25)
+
+> 1 | db.user.insert({user_id: “abc1”, firstName: "Steve", lastName: "Haines", age: 39, gender : “M”});
+    |                          ^
+db.user.insert({user_id : “abc1”, firstName : "Steve", lastName : "Haines", age : 39, gender : M});
+SyntaxError: Unexpected character '“' (1:26)
+
+> 1 | db.user.insert({user_id : “abc1”, firstName : "Steve", lastName : "Haines", age : 39, gender : M});
+    |                           ^
+db.user.insert({user_id : “abc1”, firstName : "Steve", lastName : "Haines", age : 39, gender : "M"});
+SyntaxError: Unexpected character '“' (1:26)
+
+> 1 | db.user.insert({user_id : “abc1”, firstName : "Steve", lastName : "Haines", age : 39, gender : "M"});
+    |                           ^
+db.user.insert({user_id : "abc1", firstName : "Steve", lastName : "Haines", age : 39, gender : "M"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("61040e8273699ba1af404121") } }
+db.user.insert({user_id: "abc2", firstName: "Michael", lastName: "Obama", age: 25, gender : "M"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("61040edd73699ba1af404122") } }
+db.user.insert({ user_id: "abc3",firstName: "Ram", lastName: "Das", age: 45, gender : "M"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("61040f1873699ba1af404123") } }
+db.user.insert({user_id: "abc4", firstName: "Chetan", lastName: "Barot", age: 30, gender : "M"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("61040f7573699ba1af404124") } }
+db.user.insert({user_id: "abc5", firstName: "Jaya", lastName: "Kumari", age: 35, gender : "F"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("61040fac73699ba1af404125") } }
+db.user.insert({user_id: "abc6", firstName: "Seeta", lastName: "Kumari", age: 22, gender : "F"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("61040fd973699ba1af404126") } }
+db.user.insert({user_id: "abc7", firstName: "Shiv", lastName: "Patil", age: 57, gender : "M"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("61040ff973699ba1af404127") } }
+db.user.insert({user_id: "abc8", firstName: "Rachna", lastName: "Sharma", age: 57, gender : "F"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("6104102873699ba1af404128") } }
+db.user.insert({user_id: "abc9", firstName: "Alex", lastName: "Mathew", age: 48, gender : "M"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("6104104e73699ba1af404129") } }
+db.user.insert({user_id: "abc10", firstName: "Gracy", lastName: "Abreo", age: 72, gender : "F"});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("6104107573699ba1af40412a") } }
+db.user.insert({user_id: "abc11", firstName: "Ranjan", lastName: "Patil", age: 60, gender : "M" "address":
+{ "street": "Phase1", "zipcode": "400049", "state": "Maharashtra"
+}});
+SyntaxError: Unexpected token, expected "," (1:96)
+
+> 1 | db.user.insert({user_id: "abc11", firstName: "Ranjan", lastName: "Patil", age: 60, gender : "M" "address":
+    |                                                                                                 ^
+  2 | { "street": "Phase1", "zipcode": "400049", "state": "Maharashtra"
+  3 | }});
+db.user.insert({user_id: "abc11", firstName: "Ranjan", lastName: "Patil", age: 60, gender : "M" address:
+{ street: "Phase1", zipcode: 400049, state: "Maharashtra"
+}});
+SyntaxError: Unexpected token, expected "," (1:96)
+
+> 1 | db.user.insert({user_id: "abc11", firstName: "Ranjan", lastName: "Patil", age: 60, gender : "M" address:
+    |                                                                                                 ^
+  2 | { street: "Phase1", zipcode: 400049, state: "Maharashtra"
+  3 | }});
+db.user.insert({user_id: "abc11", firstName: "Ranjan", lastName: "Patil", age: 60, gender : "M", address:
+{ street: "Phase1", zipcode: 400049, state: "Maharashtra"
+}});
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("610411bb73699ba1af40412b") } }
+db.user.find();
+{ _id: ObjectId("61040e8273699ba1af404121"),
+  user_id: 'abc1',
+  firstName: 'Steve',
+  lastName: 'Haines',
+  age: 39,
+  gender: 'M' }
+{ _id: ObjectId("61040edd73699ba1af404122"),
+  user_id: 'abc2',
+  firstName: 'Michael',
+  lastName: 'Obama',
+  age: 25,
+  gender: 'M' }
+{ _id: ObjectId("61040f1873699ba1af404123"),
+  user_id: 'abc3',
+  firstName: 'Ram',
+  lastName: 'Das',
+  age: 45,
+  gender: 'M' }
+{ _id: ObjectId("61040f7573699ba1af404124"),
+  user_id: 'abc4',
+  firstName: 'Chetan',
+  lastName: 'Barot',
+  age: 30,
+  gender: 'M' }
+{ _id: ObjectId("61040fac73699ba1af404125"),
+  user_id: 'abc5',
+  firstName: 'Jaya',
+  lastName: 'Kumari',
+  age: 35,
+  gender: 'F' }
+{ _id: ObjectId("61040fd973699ba1af404126"),
+  user_id: 'abc6',
+  firstName: 'Seeta',
+  lastName: 'Kumari',
+  age: 22,
+  gender: 'F' }
+{ _id: ObjectId("61040ff973699ba1af404127"),
+  user_id: 'abc7',
+  firstName: 'Shiv',
+  lastName: 'Patil',
+  age: 57,
+  gender: 'M' }
+{ _id: ObjectId("6104102873699ba1af404128"),
+  user_id: 'abc8',
+  firstName: 'Rachna',
+  lastName: 'Sharma',
+  age: 57,
+  gender: 'F' }
+{ _id: ObjectId("6104104e73699ba1af404129"),
+  user_id: 'abc9',
+  firstName: 'Alex',
+  lastName: 'Mathew',
+  age: 48,
+  gender: 'M' }
+{ _id: ObjectId("6104107573699ba1af40412a"),
+  user_id: 'abc10',
+  firstName: 'Gracy',
+  lastName: 'Abreo',
+  age: 72,
+  gender: 'F' }
+{ _id: ObjectId("610411bb73699ba1af40412b"),
+  user_id: 'abc11',
+  firstName: 'Ranjan',
+  lastName: 'Patil',
+  age: 60,
+  gender: 'M',
+  address: { street: 'Phase1', zipcode: 400049, state: 'Maharashtra' } }
+
+db.user.find().sort({age : 1});
+{ _id: ObjectId("61040fd973699ba1af404126"),
+  user_id: 'abc6',
+  firstName: 'Seeta',
+  lastName: 'Kumari',
+  age: 22,
+  gender: 'F' }
+{ _id: ObjectId("61040edd73699ba1af404122"),
+  user_id: 'abc2',
+  firstName: 'Michael',
+  lastName: 'Obama',
+  age: 25,
+  gender: 'M' }
+{ _id: ObjectId("61040f7573699ba1af404124"),
+  user_id: 'abc4',
+  firstName: 'Chetan',
+  lastName: 'Barot',
+  age: 30,
+  gender: 'M' }
+{ _id: ObjectId("61040fac73699ba1af404125"),
+  user_id: 'abc5',
+  firstName: 'Jaya',
+  lastName: 'Kumari',
+  age: 35,
+  gender: 'F' }
+{ _id: ObjectId("61040e8273699ba1af404121"),
+  user_id: 'abc1',
+  firstName: 'Steve',
+  lastName: 'Haines',
+  age: 39,
+  gender: 'M' }
+{ _id: ObjectId("61040f1873699ba1af404123"),
+  user_id: 'abc3',
+  firstName: 'Ram',
+  lastName: 'Das',
+  age: 45,
+  gender: 'M' }
+{ _id: ObjectId("6104104e73699ba1af404129"),
+  user_id: 'abc9',
+  firstName: 'Alex',
+  lastName: 'Mathew',
+  age: 48,
+  gender: 'M' }
+{ _id: ObjectId("61040ff973699ba1af404127"),
+  user_id: 'abc7',
+  firstName: 'Shiv',
+  lastName: 'Patil',
+  age: 57,
+  gender: 'M' }
+{ _id: ObjectId("6104102873699ba1af404128"),
+  user_id: 'abc8',
+  firstName: 'Rachna',
+  lastName: 'Sharma',
+  age: 57,
+  gender: 'F' }
+{ _id: ObjectId("610411bb73699ba1af40412b"),
+  user_id: 'abc11',
+  firstName: 'Ranjan',
+  lastName: 'Patil',
+  age: 60,
+  gender: 'M',
+  address: { street: 'Phase1', zipcode: 400049, state: 'Maharashtra' } }
+{ _id: ObjectId("6104107573699ba1af40412a"),
+  user_id: 'abc10',
+  firstName: 'Gracy',
+  lastName: 'Abreo',
+  age: 72,
+  gender: 'F' }
+
+db.user.find({lastName: "Kumari"},{user_id: 1 , firstName: 1 , age : 1 , gender : 1});
+{ _id: ObjectId("61040fac73699ba1af404125"),
+  user_id: 'abc5',
+  firstName: 'Jaya',
+  age: 35,
+  gender: 'F' }
+{ _id: ObjectId("61040fd973699ba1af404126"),
+  user_id: 'abc6',
+  firstName: 'Seeta',
+  age: 22,
+  gender: 'F' }
+
+db.user.find({gender : "M"},{user_id: 1 , firstName: 1 , lastName: 1 , age : 1 });
+{ _id: ObjectId("61040e8273699ba1af404121"),
+  user_id: 'abc1',
+  firstName: 'Steve',
+  lastName: 'Haines',
+  age: 39 }
+{ _id: ObjectId("61040edd73699ba1af404122"),
+  user_id: 'abc2',
+  firstName: 'Michael',
+  lastName: 'Obama',
+  age: 25 }
+{ _id: ObjectId("61040f1873699ba1af404123"),
+  user_id: 'abc3',
+  firstName: 'Ram',
+  lastName: 'Das',
+  age: 45 }
+{ _id: ObjectId("61040f7573699ba1af404124"),
+  user_id: 'abc4',
+  firstName: 'Chetan',
+  lastName: 'Barot',
+  age: 30 }
+{ _id: ObjectId("61040ff973699ba1af404127"),
+  user_id: 'abc7',
+  firstName: 'Shiv',
+  lastName: 'Patil',
+  age: 57 }
+{ _id: ObjectId("6104104e73699ba1af404129"),
+  user_id: 'abc9',
+  firstName: 'Alex',
+  lastName: 'Mathew',
+  age: 48 }
+{ _id: ObjectId("610411bb73699ba1af40412b"),
+  user_id: 'abc11',
+  firstName: 'Ranjan',
+  lastName: 'Patil',
+  age: 60 }
+
+db.user.find({age :{$lt : 30}},{firstName : 1 , lastName : 1});
+{ _id: ObjectId("61040edd73699ba1af404122"),
+  firstName: 'Michael',
+  lastName: 'Obama' }
+{ _id: ObjectId("61040fd973699ba1af404126"),
+  firstName: 'Seeta',
+  lastName: 'Kumari' }
+
+db.user.find({age :{$gt : 30}});
+{ _id: ObjectId("61040e8273699ba1af404121"),
+  user_id: 'abc1',
+  firstName: 'Steve',
+  lastName: 'Haines',
+  age: 39,
+  gender: 'M' }
+{ _id: ObjectId("61040f1873699ba1af404123"),
+  user_id: 'abc3',
+  firstName: 'Ram',
+  lastName: 'Das',
+  age: 45,
+  gender: 'M' }
+{ _id: ObjectId("61040fac73699ba1af404125"),
+  user_id: 'abc5',
+  firstName: 'Jaya',
+  lastName: 'Kumari',
+  age: 35,
+  gender: 'F' }
+{ _id: ObjectId("61040ff973699ba1af404127"),
+  user_id: 'abc7',
+  firstName: 'Shiv',
+  lastName: 'Patil',
+  age: 57,
+  gender: 'M' }
+{ _id: ObjectId("6104102873699ba1af404128"),
+  user_id: 'abc8',
+  firstName: 'Rachna',
+  lastName: 'Sharma',
+  age: 57,
+  gender: 'F' }
+{ _id: ObjectId("6104104e73699ba1af404129"),
+  user_id: 'abc9',
+  firstName: 'Alex',
+  lastName: 'Mathew',
+  age: 48,
+  gender: 'M' }
+{ _id: ObjectId("6104107573699ba1af40412a"),
+  user_id: 'abc10',
+  firstName: 'Gracy',
+  lastName: 'Abreo',
+  age: 72,
+  gender: 'F' }
+{ _id: ObjectId("610411bb73699ba1af40412b"),
+  user_id: 'abc11',
+  firstName: 'Ranjan',
+  lastName: 'Patil',
+  age: 60,
+  gender: 'M',
+  address: { street: 'Phase1', zipcode: 400049, state: 'Maharashtra' } }
+
+db.user.find({age : 57});
+{ _id: ObjectId("61040ff973699ba1af404127"),
+  user_id: 'abc7',
+  firstName: 'Shiv',
+  lastName: 'Patil',
+  age: 57,
+  gender: 'M' }
+{ _id: ObjectId("6104102873699ba1af404128"),
+  user_id: 'abc8',
+  firstName: 'Rachna',
+  lastName: 'Sharma',
+  age: 57,
+  gender: 'F' }
+
+db.user.update({'user_id' : 'abc10'},{$set : {'age' : 73}});
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+db.user.update({'user_id' : 'abc4'},{$inc : {'age' : 4}});
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+db.user.deleteMany({"firstName" : "Steve"});
+{ acknowledged: true, deletedCount: 1 }

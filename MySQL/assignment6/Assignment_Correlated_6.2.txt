@@ -1,0 +1,30 @@
+1. List department details in which no employee is working.
+SELECT * FROM departments 
+WHERE department_id 
+NOT IN (select department_id FROM employees);
+
+
+
+2. Find list of employees which are earning less then avg salary of there department
+SELECT * FROM employees 
+WHERE salary < 
+ALL(SELECT avg(salary)FROM employees GROUP BY department_id);
+
+
+3. Display list of employees which are earning more then the corresponding manager.
+SELECT employee.*
+FROM your_table_name AS employee
+JOIN your_table_name AS manager ON manager.EMPNO = employee.MGR 
+WHERE employee.SAL > manager.SAL 
+
+
+4. Display list of employees which are not managed by anyone
+SELECT Empno, Ename, Job, Sal
+FROM Emp
+WHERE Empno NOT IN (SELECT DISTINCT MGR FROM Emp WHERE MGR IS NOT NULL)
+
+5. Display department details where avg salary is more then 1000
+
+select * from emp e, (select dept,avg(sal) avg_sal from emp group by
+dept) e1
+where e.dept=e1.dept and e.sal > 1000
